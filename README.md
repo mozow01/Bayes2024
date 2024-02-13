@@ -12,10 +12,10 @@ Jelenlét (70%), két beadandó programozási feladat, amelyből egy kiválthat�
 
 1. Bevezetés - Mi a Bayes-féle statisztikai megközelítés?
 2. Állítás mint adattípus, komputációs és funkcionális paradigma, determinisztikus algoritmusok.
-3. Bevezetés a valószínűségi programozásba néhány valószínűségi programnyelv segítségével.
+3. A valószínűségelmélet bayesiánus megalapozása, Bayes- és Jeffrey-frissítés.
 4. Kombinatorikai és sztochasztikus jelenségek.
-5. A valószínűségelmélet bayesiánus megalapozása, Bayes- és Jeffrey-frissítés.
-6. Prior és poszterior eloszlások, likelihood függvény, konjugált priorok, informatív és nem informatív priorok.
+5. Prior és poszterior eloszlások, likelihood függvény, konjugált priorok, informatív és nem informatív priorok.
+6. Bevezetés a valószínűségi programozásba néhány valószínűségi programnyelv segítségével.
 7. ZH (1)
 8. Többváltozós valószínűségi eloszlások faktorizációja és a gráfmodell reprezentáció. Generatív modell.
 9. Gyakorlati példák grafikus modellekre és ezek beprogramozása. Markov-lánc Monte Carlo eljárás és inferálási algoritmusok.
