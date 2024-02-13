@@ -23,3 +23,10 @@ Jelenlét (70%), két beadandó programozási feladat, amelyből egy kiválthat�
 11. Bayes-faktor és kiszámítása. Modell összehasonlítás és validáció.
 12. BIC, AIC és Kullback–Leibler-divergencia.
 13. ZH (2)
+
+# Irodalom
+Lee, M.D., & Wagenmakers, E. (2014). Bayesian Cognitive Modeling: A Practical Course.
+
+Kruschke, J.K. (2014). Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan.
+
+https://probmods.org/
