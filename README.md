@@ -16,10 +16,10 @@ Jelenlét (70%), két beadandó programozási feladat, amelyből egy kiválthat�
 4. Kombinatorikai és sztochasztikus jelenségek.
 5. A valószínűségelmélet bayesiánus megalapozása, Bayes- és Jeffrey-frissítés.
 6. Prior és poszterior eloszlások, likelihood függvény, konjugált priorok, informatív és nem informatív priorok.
-7. 1. ZH
+7. ZH (1)
 8. Többváltozós valószínűségi eloszlások faktorizációja és a gráfmodell reprezentáció. Generatív modell.
 9. Gyakorlati példák grafikus modellekre és ezek beprogramozása. Markov-lánc Monte Carlo eljárás és inferálási algoritmusok.
 10. Hierarchikus modellek. Bayes-féle adatelemzés, agymodellezés és pszichometrikus elemzés.
 11. Bayes-faktor és kiszámítása. Modell összehasonlítás és validáció.
 12. BIC, AIC és Kullback–Leibler-divergencia.
-13. 2. ZH
+13. ZH (2)
