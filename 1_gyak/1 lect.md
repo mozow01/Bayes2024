@@ -6,7 +6,7 @@
 
 Van egy törpehörcsögünk, amelyikről azt gyanítjuk, hogy rendellenesen fogy. A súlya (tömege :) ) elméletileg egy 22 g közepű 1 g-os szórású normál eloszlás (haranggörbe). El kéne dönteni, hogy orvoshoz kell-e vinni. 
 
-![Csofi](https://github.com/mozow01/cog_compsci/blob/main/2024/horcsi.jpeg)
+![Csofi](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/horcsi.jpeg)
 
 #### Klasszikus frekventista megközelítés
 
@@ -73,13 +73,13 @@ var output_1 = Infer(opts, Model)
 viz.marginals(output_1)
 ````
 
-![CsofiPriorPred1](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/a43e23.svg)
+![CsofiPriorPred1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/a43e23.svg)
 
-![CsofiPriorPred2](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/ab9c7c.svg)
+![CsofiPriorPred2](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/ab9c7c.svg)
 
-![CsofiProsteriorPred](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/b4c381.svg)
+![CsofiProsteriorPred](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/b4c381.svg)
 
-![CsofiPosterior](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/98af7d.svg)
+![CsofiPosterior](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/98af7d.svg)
 
 
 ### Összevetés
@@ -101,26 +101,26 @@ Adott egy érme, amelyikről meg szeretnénk állapítani, hogy cinkelt-e. A fre
 
 A) Dobunk N-szer és megszámoljuk a fejek számát (z). (Ez a binomiális elképzelés.) Ekkor a kimenetelek valószínűségére egy képletet feltételezhetünk (később bebizonyítjuk). Legyen pl. N=24 és z=7. 
 
-![Binom1](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/binom_1.png)
+![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/binom_1.png)
 
 Ez alapján kiszámoljuk a p értékét az adott adatra és a következőt találjuk:
 
-![Binom1](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/binom_2.png)
+![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/binom_2.png)
 
 alfa = 0.05-re (alfa/2 = 0.025) ez még OK! 
 
 B) Annyiszor dobunk, hogy a fejek száma elérje a z-t. (Ez a negatív binomiális elképzelés.) Ekkor a kimenetelek valószínűségére egy képletet feltételezhetünk (ezt nem fogjuk bizonyítani :) ):
 
-![Binom1](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/negbin_1.png)
+![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/negbin_1.png)
 
 Ez alapján kiszámolhatjuk a p értékét az adott adatra és a következőt találjuk:
 
-![Binom1](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/
+![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/
 alfa = 0.05-re ez már nem OK! 
 
 PEDIG! Az adatok nem tudják, milyen SZÁNDÉKKAL dobtuk őket... Nem kell velük közölnünk... Az érme attól függően cinkelt vagy nem cinkelt, hogy mit GONDOLUNK arról, hogy mi a minták tere... Ez abszurd! 
 
 Konklúzió: nincs olyan, hogy "a" p érték; olyan van, hogy őszintén meg kell mondani, hogy mi a minták tere, de ilyet nem mindig látunk, csak a próbát és a p értéket adják meg, ami inkorrekt.
 
-![Binom1](https://github.com/mozow01/cog_compsci/blob/main/Bayes2024/1_gyak/bin.png)
+![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/bin.png)
 
