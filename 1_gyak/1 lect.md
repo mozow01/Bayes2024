@@ -1,5 +1,7 @@
 # Frekventizmus és bayesianizmus
 
+(Az itteni anyag második fele a Kruschke 11-edik fejezetében található gondolatmeneten alapul. A bevezetés nem...)
+
 ## Előzetes összevetés
 
 ### Mintapélda (törpehörcsi)
