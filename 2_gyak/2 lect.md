@@ -10,7 +10,9 @@ Látható, hogy a valószínűségszámításban központi szerepe van az állí
 
 Mindezek miatt indokol, hogy az állításlogikát megtanuljuk. Ezt a Coq programmal fogjuk megtenni. 
 
-A másik lényeges téma, hogy a komputációs hipotézis -- az agy úgy viselkedik, mint egy valószínűségi számítógép --, azt is feltételezi, hogy a ismerjük a programokat, ezzel is lesz dolgunk.
+A másik lényeges téma, hogy a komputációs hipotézis -- az agy úgy viselkedik, mint egy valószínűségi számítógép --, azt is feltételezi, hogy ismerjük a programokat (JS, webppl), ezzel is lesz dolgunk.
 
-## 
+## Coq és állítástípusok
+
+https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html
 
