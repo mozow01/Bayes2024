@@ -30,3 +30,25 @@ Lee, M.D., & Wagenmakers, E. (2014). Bayesian Cognitive Modeling: A Practical Co
 Kruschke, J.K. (2014). Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan.
 
 https://probmods.org/
+
+Bayes-statisztika jegyzet R példákkal: 
+
+https://vasishth.github.io/bayescogsci/book/
+
+## WEBPPL tutorialok és minták
+
+https://github.com/tobiasgerstenberg/webppl_tutorial
+
+http://dippl.org/
+
+http://www.problang.org/
+
+https://mhtess.github.io/bdappl/
+
+http://9.660.scripts.mit.edu/chapters/01-webpplBasics.html
+
+https://probmods.github.io/webppl-viz/
+
+## Coq oldalal
+
+https://coq.inria.fr/
