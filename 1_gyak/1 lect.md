@@ -115,7 +115,7 @@ B) Annyiszor dobunk, hogy a fejek száma elérje a z-t. (Ez a negatív binomiál
 
 Ez alapján kiszámolhatjuk a p értékét az adott adatra és a következőt találjuk:
 
-![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/
+![Binom1](https://github.com/mozow01/Bayes2024/blob/main/1_gyak/negbin_2.png
 alfa = 0.05-re ez már nem OK! 
 
 PEDIG! Az adatok nem tudják, milyen SZÁNDÉKKAL dobtuk őket... Nem kell velük közölnünk... Az érme attól függően cinkelt vagy nem cinkelt, hogy mit GONDOLUNK arról, hogy mi a minták tere... Ez abszurd! 
