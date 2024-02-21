@@ -4,7 +4,7 @@
 
 Látható, hogy a valószínűségszámításban központi szerepe van az állítás- vagy eseményalgebrának. 
 
-1. A Frekventista megközelítésben inkább halmazalgebráról van szó, ahol az események halmazának elemei az események. 
+1. A frekventista megközelítésben inkább halmazalgebráról van szó, ahol az események halmazának elemei az események. 
 
 2. A bayesiánus elképzelésben az események halmaza (a sample space) nem mindig elsődleges, a fő hangsúly az állításokon van, amelyeknek valószínűsége van. 
 
