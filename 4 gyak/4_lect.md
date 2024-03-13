@@ -65,7 +65,7 @@ Eseménytér (összes lehetséges kimenetelek) : rendezett párok 1, 2, 3, 4, 5,
 
 ▢ ▢
 
-6  6
+(6 szor 6 eset)
 
 kedvező esetek: 
 
