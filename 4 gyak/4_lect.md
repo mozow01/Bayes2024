@@ -61,7 +61,7 @@ viz.auto(output);
 
 ----
 
-Eseménytér: rendezett párok (összes lehetséges kimenetelek) 
+Eseménytér (összes lehetséges kimenetelek) : rendezett párok 1, 2, 3, 4, 5, 6 -ból.
 
 ▢ ▢
 
@@ -69,7 +69,13 @@ Eseménytér: rendezett párok (összes lehetséges kimenetelek)
 
 kedvező esetek: 
 
-6 ▢ vagy ▢ 6 vagy 6 6 
+6 ▢ 
+
+vagy 
+
+▢ 6 
+
+(amiben a 6 6 is ott van persze (mondjuk kétszer)) 
 
 ````javascript
 var dobás = function () {
