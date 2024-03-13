@@ -59,6 +59,10 @@ viz.auto(output);
 
 Mi annak a valószínűsége, hogy két kockával dobva legalább az egyik hatos?
 
+----
+
+
+
 ````javascript
 var dobás = function () {
   var kocka1 = categorical({ps: [1/6, 1/6, 1/6, 1/6, 1/6, 1/6], 
