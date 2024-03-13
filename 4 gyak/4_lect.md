@@ -182,13 +182,17 @@ Eloszlásnak azt nevezzük, ahogy megadjuk P-t. Ez sokféle lehet, de pl. véges
 
 ## Kártyák
 
-Egy 52 lapos francia kártyapakliból kihúzunk 2 lapot. Mi annak a valószínűsége, hogy a kőr király van a kihúzott lapok között van?
+**Egy 52 lapos francia kártyapakliból kihúzunk 2 lapot. Mi annak a valószínűsége, hogy a kőr király van a kihúzott lapok között van?**
+
+----
 
 _Rendezetlen modell._ Összes eset: (52 choose 2)
 
 Kedvező esetek: nincsenek a helyek (húzások) megülönböztetve. De szorzás, mert függetlenül választunk az egyetlen kőr király és a többi közül: (1 choose 1)*(51 choose 1)
 
-_Rendezett modell._ Ebben az esetben párokhoz rendelünk valószínűséget, ezt **joint** vagy **többváltozós eloszlásnak** nevezzük. Z = (X,Y), ahol X, Y a két külön kártya tere, amik feletti eloszlás azonban vészesen _összefügg_, mert nem tesszük vissza a kártyát.
+-----
+
+_Rendezett modell._ Ebben az esetben párokhoz rendelünk valószínűséget, ezt **joint** vagy **többváltozós eloszlásnak** nevezzük. Z = (X,Y), ahol X, Y a két külön kártya terét definiáló "valószínűségi változó", amelyek azt mondják, meg, mi van az adott lapon. Ezek a változók vészesen _összefüggenek_, mert nem tesszük vissza a kártyát.
 
 |   P(X,Y)   | Y=1 | 2 | ... | 52 | marginális P(X) |
 | --- | --- | --- | --- | --- | --- | 
