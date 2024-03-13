@@ -61,7 +61,11 @@ Mi annak a valószínűsége, hogy két kockával dobva legalább az egyik hatos
 
 ----
 
+Eseménytér: rendezett párok (összes lehetséges kimenetelek) 
 
+▢ ▢
+
+6 6
 
 ````javascript
 var dobás = function () {
