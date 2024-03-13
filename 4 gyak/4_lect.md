@@ -57,7 +57,7 @@ viz.auto(output);
 
 <img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/2381778-200.png" width=100>
 
-Mi annak a valószínűsége, hogy két kockával dobva legalább az egyik hatos?
+**Mi annak a valószínűsége, hogy két kockával dobva legalább az egyik hatos?**
 
 ----
 
@@ -65,7 +65,11 @@ Eseménytér: rendezett párok (összes lehetséges kimenetelek)
 
 ▢ ▢
 
-6 6
+6  6
+
+kedvező esetek: 
+
+6 ▢ vagy ▢ 6 vagy 6 6 
 
 ````javascript
 var dobás = function () {
