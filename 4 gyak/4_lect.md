@@ -180,6 +180,16 @@ További fontos szabályok:
 
 Eloszlásnak azt nevezzük, ahogy megadjuk P-t. Ez sokféle lehet, de pl. véges esetben az elemi események felsorolása, végtelen esetben sűrűség vagy kumulatív eloszlásfüggvénnyel (később).
 
+## Logikai szitás feladatok
+
+**Tudjuk, hogy P(A) = 0,5 P(B) = 0,7 és P(A*B) = 0,4.**
+
+**Mennyi 𝑃(𝐴 + 𝐵) = (𝑃(𝐴) + 𝑃(𝐵) − 𝑃(𝐴 ∗ 𝐵) =) ?**
+
+(Mennyi P(A\B)? (Másképpen P(A-B)) 𝑃(𝐴\𝐵) = 𝑃(𝐴) − 𝑃(𝐴 ∗ 𝐵) ?)
+
+**Független-e A és B esemény a P-re vonatkozóan?**
+
 ## Kártyák
 
 **Egy 52 lapos francia kártyapakliból kihúzunk 2 lapot. Mi annak a valószínűsége, hogy a kőr király van a kihúzott lapok között van?**
