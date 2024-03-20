@@ -89,21 +89,17 @@ az együttes vagy joint vagy többváltozós valószínűség _felbontását_ sz
 
 **1.** 
 
-Pesten annak a valószínűsége, hogy március 14-edikán esik: 1/3. Ha esik, akkor 50%-os valószínűséggel dugul be a város. Ha nem esik, akkor a dugó kialakulásának aránya 0,25.   
+Pesten annak a valószínűsége, hogy március 20-adikán esik: 1/3. Ha esik, akkor 50%-os valószínűséggel dugul be a város. Ha nem esik, akkor a dugó kialakulásának aránya 0,25.   
 
 **a)** Mi annak a valószínűsége, hogy közlekedési torlódás alakul ki?
 
 Legyen R az az igaz/hamis értékű kategorikus változó, hogy esik. Ekkor 
 
-<img src="https://render.githubusercontent.com/render/math?math=R%20%5C%3B~%20%5C%3B%5Ctext%7Bcategorical%7D(%5Ctext%7Bigaz%3A%7D%5C%3B%201%2F3%3B%5Ctext%7B%20hamis%3A%7D%5C%3B2%2F3)%20">
+[![\\ R\sim categorical(1/3,2/3)](https://latex.codecogs.com/svg.latex?%5C%5C%20R%5Csim%20categorical(1%2F3%2C2%2F3))](#_)
 
 vagyis ez nem függ semmitől. A dugó T változója viszont feltételesen van megadva:  
 
-<img src="https://render.githubusercontent.com/render/math?math=T%20%5C%3B~%5C%3B%20%5Ctext%7Bcategorical(igaz%2C%20ha%20R%3Digaz%3A%7D%5C%3B%201%2F2%3B%5C%3B%5Ctext%7Bigaz%2C%20ha%20R%3Dhamis%3A%20%7D%5C%3B1%2F2%3B%5C%3B%5Ctext%7Bhamis%2C%20ha%20R%3Digaz%3A%7D%5C%3B3%2F4%3B%5C%3B%5Ctext%7Bhamis%2C%20ha%20R%3Dhamis%3A%20%7D%5C%3B1%2F4%20%5Ctext%7B)%7D%20">
-
-_Rögzített_ x és y értékek esetén:
-
-<img src="https://render.githubusercontent.com/render/math?math=P(R%3Dx%2CT%3Dy)%3DP(T%3Dy%5Cmid%20R%3Dx%20)%5Ccdot%20P(R%3Dx)%20">  
+[![\\ T\sim \begin{cases}categorial(0.5,0.5) & R=true \\ \\ categorial(0.25,0.57) & R=false \\ \end{cases}](https://latex.codecogs.com/svg.latex?%5C%5C%20T%5Csim%20%5Cbegin%7Bcases%7Dcategorial(0.5%2C0.5)%20%26%20R%3Dtrue%20%5C%5C%20%5C%5C%20categorial(0.25%2C0.57)%20%26%20R%3Dfalse%20%5C%5C%20%5Cend%7Bcases%7D)](#_)
 
 Számoljuk ki az előző óra alapján:
 
@@ -119,44 +115,13 @@ var Z = Infer({method: 'enumerate', model: model6})
 viz(Z)
 ````
 
-Ami nekünk kell, az a T eloszlása. De ez függ az R-ről, ezért erre szummázunk és a joint valószínűséget  
-
-<img src="https://render.githubusercontent.com/render/math?math=P(T%3Dy)%3D%5Csum_%7Bx%3D%5Ctext%7Bigaz%2C%20hamis%7D%7D%20P(Y%3Dy%2C%20X%3Dx)%20%3D%20P(Y%3Dy%2C%20X%3Digaz)%2BP(Y%3Dy%2C%20X%3Dhamis)">
-
+Mi a joint valószínűség?
 
 **b)** Tudjuk, hogy annak a valószínűsége, hogy késem, 1/2 ha nincs dugó, ha viszont dugó van, akkor 90%. Mennyi a késésem eloszlása? 
 
-Legyen ez a változó L.
-
-<img src="https://render.githubusercontent.com/render/math?math=L%5C%3B~%5C%3B%5Ctext%7Bcategorical(igaz%3A%7D%5C%3B1%5C%2C%3B%5Ctext%7Bha%20T%20igaz%7D%3B%5C%3B%5C%3B1%2F2%2C%5C%3B%5Ctext%7Bha%20T%20hamis%7D)">
-
-Ekkor a függési viszonyok:
-
-<img src="https://render.githubusercontent.com/render/math?math=P(R%3Dx%2CT%3Dy%2CL%3Dz)%3D%20P(L%3Dy%5Cmid%20T%3Dy)%5Ccdot%20P(T%3Dy%5Cmid%20R%3Dx)%5Ccdot%20P(R%3Dx)">
-
 Alakítsuk át a programot és marginalizáljunk L-re!
 
-### Feltételes eloszlás joint eloszlás esetén általános eset
-
-A 
-
-<img src="https://render.githubusercontent.com/render/math?math=P(X%2CY)%3A%3DP(X%3Dx_i%2CY%3Dy_j)%3A%3DP(X%3Dx_i%5Cwedge%20Y%3Dy_j)">
-
-**joint eloszlás** esetén, a **feltételes valószínűség** gyakran a fenti egy speciális esete és így definiálják:
-
-<img src="https://render.githubusercontent.com/render/math?math=P(X%7CY)%3A%3D%20P(X%3Dx_i%5Cmid%20Y%3Dy_i)">
-
-Persze ezt is lehet szorzat formában írni:
-
-<img src="https://render.githubusercontent.com/render/math?math=P(X%2CY)%3DP(X%3Dx_i%5Cwedge%20Y%3Dy_i)%3DP(X%3Dx_i%5Cmid%20Y%3Dy_i)%5Ccdot%20P(Y%3Dy_j)">
-
-ahol P(Y) = P( Y = y<sub>j</sub> ) speciálisan egyben az egyik marginális eloszlás is:
-
-<img src="https://render.githubusercontent.com/render/math?math=P(Y%3Dy_j)%3D%5Csum_i%20P(X%3Dx_i%2CY%3Dy_j)">
-
 **Megjegyzés.** Vegyük észre, hogy a P (X | Y = y<sub>j</sub> ) = P( X = x<sub>i</sub> | Y = y<sub>j</sub> ) rögzített y<sub>j</sub>-re szintén az **X változó** egy valószínűségi eloszlása (pl. egyre összegződik: 
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Csum_%7Bi%7D%20P(X%3Dx_i%5Cmid%20Y%3Dy_i)%3D%5Csum_%7Bi%7D%5Cdfrac%7BP(X%3Dx_i%2CY%3Dy_j)%7D%7BP(Y%3Dy_j)%7D%3D%5Cdfrac%7B%5Csum_%7Bi%7DP(X%3Dx_i%2CY%3Dy_j)%7D%7BP(Y%3Dy_j)%7D%3D%5Cdfrac%7BP(Y%3Dy_j)%7D%7BP(Y%3Dy_j)%7D%3D1">)
 
 Mindez Y-ra nem igaz: az Y értékben változó P(X = x<sub>i</sub> | Y ) kifejezés csak egy egyszerű függvény, pl. nem feltétlenül összegződik 1-re.
 
