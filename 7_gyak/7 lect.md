@@ -6,7 +6,7 @@ Valószínűségi változók függhetnek egymástól.
 
 X = pénzérmével fej vagy írás (boole (1|0) értékű változó (0.5, 0.5) kategorikus eloszással)
 
-Y = királyt húzása (1|0) magyar kártyávól, akkor és csak akkor, ha X = 1, és francia kártyából, ha X = 0.
+Y | X = királyt húzása (1|0) magyar kártyából, ha X = 1, és francia kártyából, ha X = 0.
 
 |      |  X=1   | X=0 |  
 | ---  | --- | --- | 
@@ -15,11 +15,17 @@ Y = királyt húzása (1|0) magyar kártyávól, akkor és csak akkor, ha X = 1,
 
 **Megjegyzés.** Ez a táblázat ilyenkor csak X rögzítésével lesz "igazi" eloszlás. A mögöttes eloszlás Y, azaz a "király húzása" csak közvetetten tudható. 
 
-**Definíció** (Leszűkítjük az elemi események terét a feltételre, az A eseményt teljesítő elemi részeseményekre, azaz innentől nem Ω, hanem A az összes elemi események tere: )
+(Feltételes: leszűkítjük az elemi események terét a feltételre, az A eseményt teljesítő elemi részeseményekre, azaz innentől nem Ω, hanem A az összes elemi események tere.)
 
-<img src="https://render.githubusercontent.com/render/math?math=P(B%7CA)%5Coverset%7B%5Cmathrm%7Bdef.%7D%7D%7B%3D%7D%5Cdfrac%7BP(A%5Ccap%20B)%7D%7BP(A)%7D%5Cquad%20%5Cquad%20P(A)%5Cneq%200">
+"Awkward" jelülés:
 
-P(B|A) -t úgy mondjuk ki, hogy B valószínűsége feltéve, hogy A (probability of B given A).
+[![\\ \Pr(Y\mid X)=\frac{\Pr (Y\cdot X)}{\Pr (X)},\quad \Pr (X)\ne 0](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%5Cmid%20X)%3D%5Cfrac%7B%5CPr%20(Y%5Ccdot%20X)%7D%7B%5CPr%20(X)%7D%2C%5Cquad%20%5CPr%20(X)%5Cne%200)](#_)
+
+... és amit jelent valójába: rögzített x1,x2,... y1,y2,... elemi kimenetelekkel:
+
+[![\\ \Pr(Y=y_j\mid X=x_i)=\frac{\Pr (Y=y_j\;\&\; X=x_i)}{\Pr (X=x_i)},\quad \Pr (X=x_i)\ne 0](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%3Dy_j%5Cmid%20X%3Dx_i)%3D%5Cfrac%7B%5CPr%20(Y%3Dy_j%5C%3B%5C%26%5C%3B%20X%3Dx_i)%7D%7B%5CPr%20(X%3Dx_i)%7D%2C%5Cquad%20%5CPr%20(X%3Dx_i)%5Cne%200)](#_)
+
+P(Y|X) -t úgy mondjuk ki, hogy Y valószínűsége feltéve, hogy X (probability of Y given X).
 
 ````javascript
 var model5 = function () {
