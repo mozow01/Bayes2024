@@ -43,7 +43,9 @@ Tehát a
 
 [![\\ j\mapsto \Pr(Y=y_j\mid X=x_i),\qquad X=x_i\quad const.](https://latex.codecogs.com/svg.latex?%5C%5C%20j%5Cmapsto%20%5CPr(Y%3Dy_j%5Cmid%20X%3Dx_i)%2C%5Cqquad%20X%3Dx_i%5Cquad%20const.)](#_)
 
-függvény valószínűségi eloszlás és **feltételes valószínűségi eloszlásnak** hívjuk.
+függvény valószínűségi eloszlás és **feltételes valószínűségi eloszlásnak** hívjuk. És valóban, az oszlopok összege kiadja az 1-et:
+
+[![\\ \sum\limits_{j=1}^k\Pr(Y=y_i\;\mid\; X=x_i)= 1](https://latex.codecogs.com/svg.latex?%5C%5C%20%5Csum%5Climits_%7Bj%3D1%7D%5Ek%5CPr(Y%3Dy_i%5C%3B%5Cmid%5C%3B%20X%3Dx_i)%3D%201)](#_)
 
 Az X*Y szintén eloszlás:
 
@@ -59,13 +61,22 @@ vagy az awkward jelöléssel:
 
 [![\\ \Pr(Y\;\cdot\; X)= \Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%5C%3B%5Ccdot%5C%3B%20X)%3D%20%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
 
-
-Ekkor (X,Y) eloszlása már igazi, együttes, "joint". 
+Ekkor (X,Y) eloszlása már igazi, együttes, "joint" eloszlás. 
 
 |      |  X=1   | X=0 |  
 | ---  | --- | --- | 
 |  Y=1 |  1/16 | 1/26 | 
 |  Y=0 | 7/16 | 6/13  | 
+
+Viszont ha Y-t rögzítjük, akkor P(Y|X) nem lesz valószínűségi eloszlás, akkor az az úgy nevezett **likelihood függvény:**
+
+[![\\ x_i\mapsto\Pr(Y=y_i\;\mid\; X=x_i)\ne 1, \qquad y_j=const.](https://latex.codecogs.com/svg.latex?%5C%5C%20x_i%5Cmapsto%5CPr(Y%3Dy_i%5C%3B%5Cmid%5C%3B%20X%3Dx_i)%5Cne%201%2C%20%5Cqquad%20y_j%3Dconst.)](#_)
+
+Valóban, általában a sorok összege nem 1:
+
+[![\\ \sum\limits_{i=1}^k\Pr(Y=y_i\;\mid\; X=x_i)\ne 1, \qquad y_j=const.](https://latex.codecogs.com/svg.latex?%5C%5C%20%5Csum%5Climits_%7Bi%3D1%7D%5Ek%5CPr(Y%3Dy_i%5C%3B%5Cmid%5C%3B%20X%3Dx_i)%5Cne%201%2C%20%5Cqquad%20y_j%3Dconst.)](#_)
+
+DE ez is egy nagyon hasznos függvény. Egy interperetáció, ezt ez a szám azt mondja, meg, hogy az adat milyen valószínű a különböző lehetséges világokban. Pl. fent az egyik világban magyar, a másikban francia kártya van. Az egyik világban a király valószínűsége nagyobb, mint a másikban. Ezért ha királyt húzunk, akkor nagyobb valószínűséggel vagyunk a "magyar" világban. Ezt a módszert hívjuk **maximum likelihood** módszernek. A Bayes-féle modellkiválasztás ennek egy spéci verziója és Pearson majdnem kitalálta az 1890-es években. 
 
 ## Monty Hall- (vos Savant-) paradoxon
 
