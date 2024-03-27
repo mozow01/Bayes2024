@@ -87,6 +87,9 @@ DE ez is egy nagyon hasznos függvény. Egy interperetáció, ezt ez a szám azt
 Adott 3 csukott ajtó mögött egy-egy nyeremény: 1 autó és 1-1 plüsskecske. Monty, a showman megkér minket arra, hogy tippeljük meg, hol az autó (ha eltaláljuk, a miénk lesz). Amikor ez megtörtént, akkor Monty kinyit egy ajtót, éspedig szigorúan azok közül egyet, amelyek mögött egy kecske van és nem mutattunk rá. Majd felteszi újra a kérdést: hol az autó. Érdemes-e megmásítanunk a döntésünket?
 
 A feladatot a joint eloszlás feltérképezésével oldjuk meg.
+
+X a tippünk, Y az autó helye, Z az, hogy Monty melyik ajtót nyitja ki.
+
 |      |     | Y=1 |     |     | Y=2 |     |     | Y=3 |     | P(X) |
 | ---  | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |      | Z=1 | Z=2 | Z=3 | Z=1 | Z=2 | Z=3 | Z=1 | Z=2 | Z=3 |     | 
@@ -95,7 +98,7 @@ A feladatot a joint eloszlás feltérképezésével oldjuk meg.
 | X=3  | 0   | 1/9 |  0 | 1/9   | 0   | 0 | 1/18 | 0  |   1/18 |  1/3 | 
 | P(Y) | 0   | 1/3 | 0   | 0   | 1/3 | 0   | 0   | 1/3 |   0 |   1  | 
 
-X a tippünk, Y az autó helye. Először számoljuk ki egy esetben, mi annak a valószínűsége, hogy ugyanazon ajtó mögött van a nyeremény, amire mutattunk. Pl.: P(X=1 és Y=1) = 1/9. Persze ezt mindhárom esetben ki tudjuk számolni, és az eredmény:
+Először számoljuk ki egy esetben, mi annak a valószínűsége, hogy ugyanazon ajtó mögött van a nyeremény, amire mutattunk. Pl.: P(X=1 és Y=1) = 1/9. Persze ezt mindhárom esetben ki tudjuk számolni, és az eredmény:
 
 P(X=Y) = 1/3
 
