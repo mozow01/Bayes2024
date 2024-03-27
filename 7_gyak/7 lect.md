@@ -31,6 +31,8 @@ P(Y|X) -t úgy mondjuk ki, hogy Y valószínűsége feltéve, hogy X adott (prob
 var model5 = function () {
     var X = flip()
     var Y = flip( X ? 1/8 : 1/13)
+    
+    // condition (Y==1);
     // return  {'X,Y': [X , Y]}
     return  {'X' : X, 'Y': Y}
 }
