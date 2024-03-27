@@ -98,15 +98,21 @@ X a tippünk, Y az autó helye, Z az, hogy Monty melyik ajtót nyitja ki.
 | X=3  | 0   | 1/9 |  0 | 1/9   | 0   | 0 | 1/18 | 0  |   1/18 |  1/3 | 
 | P(Y) |    | 1/3 |    |    | 1/3 |   |   | 1/3 |    |   1  | 
 
-Először számoljuk ki egy esetben, mi annak a valószínűsége, hogy ugyanazon ajtó mögött van a nyeremény, amire mutattunk. Pl.: P(X=1 és Y=1) = 1/9. Persze ezt mindhárom esetben ki tudjuk számolni, és az eredmény:
+**A táblázat kitöltéséhez** érdemes végiggondolni, hogy mi függ mitől. Pl. **X és Y biztosan független:** P(X*Y)=P(X)*P(Y). Ezt fel fogjuk a számolásban használni. Itt persze P(X) egy _marginális eloszlás,_ amikor összegzünk (kilőjük) mind Y-t, mind Z-t.  
+
+Aztán azt is feltehetjük, hogy X, Y is egyenletes, azaz nem részesít előnyben egy ajtót se egy berendező se. És mi is úgy választunk, hogy az találomra megy.
+
+Monty egyenletes eloszlással (találomra?) választ ajtót, azaz P(X=1,Y=1,Z=2) = P(X=1,Y=1,Z=3), csak arra vigyáz, hogy se a mi jelöltünket, se az autót ne fedje fel. Monty mindig kecskét mutat meg!!!
+
+**Számoljuk ki egy esetben, mi annak a valószínűsége, hogy ugyanazon ajtó mögött van a nyeremény, amire mutattunk.** Pl.: P(X=1 és Y=1) = 1/9. Persze ezt mindhárom esetben ki tudjuk számolni, és az eredmény (a független lehetőségek összeadási szabály amiatt)
 
 P(X=Y) = 1/3
 
-Ez annak az esélye, hogy elsőre eltaláljuk a kedvező ajtót (ez világos is). Annak a valószínűsége, hogy nem a választottunk mögött van az autó:
+Ez annak az esélye, hogy elsőre eltaláljuk a kedvező ajtót (ez világos is). Annak a valószínűsége, hogy nem a választottunk mögött van az autó, a komplementer szabály szerint:
 
 P(X=/=Y) = 1 - 1/3 = 2/3
 
-De mivel Monty kinyitja a megmaradó kettő közül azt az ajtót, ami mögött nincs autó és nem is mutattunk rá, ezért utólag behatárolja azt a _két_ ajtót, ami mögött az autó van. Nyilván eredetileg nem bökhettünk volna rá két ajtóra, amelyek persze kétszer annyi valószínűséggel rejtik az autót. De most, hogy ebből a kettőből mutatott Monty egy rossz ajtót, már érvényesíthetjük a P(X=/=Y) = 2/3 valószínűségű nyerést egyetlen ajtóra való rámutatással. Ami persze nem jelenti, hogy ott is lesz az autó, de kétszer akkora eséllyel lesz ott, mint nem. 
+Monty kinyitja a megmaradó kettő közül azt az ajtót, ami mögött nincs autó és nem is mutattunk rá, ezért utólag behatárolja azt a _két_ ajtót, ami mögött az autó van. Nyilván eredetileg nem bökhettünk volna rá két ajtóra, amelyek persze kétszer annyi valószínűséggel rejtik az autót. De most, hogy ebből a kettőből mutatott Monty egy rossz ajtót, már érvényesíthetjük a P(X=/=Y) = 2/3 valószínűségű nyerést egyetlen ajtóra való rámutatással. Ami persze nem jelenti, hogy ott is lesz az autó, de kétszer akkora eséllyel lesz ott, mint nem. 
 
 Marilyn vos Savant egy szellemes példán mutatta be, hogy miért igaz az, hogy messze jobb váltani. Az érvelése analógiás és a következő. Lefordítunk 1000 kagylót egy parkolóban és az egyik alá rejt Marilyn egy gyöngyöt. Rámutatunk az egyikre azzal, hogy ott van a gyöngy. Találatot ezzel 1/1000 eséllyel érünk el. 
 
