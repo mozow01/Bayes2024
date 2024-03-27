@@ -31,12 +31,13 @@ P(Y|X) -t úgy mondjuk ki, hogy Y valószínűsége feltéve, hogy X adott (prob
 var model5 = function () {
     var X = flip()
     var Y = flip( X ? 1/8 : 1/13)
-    return  {'X,Y': [X , Y]}
+    // return  {'X,Y': [X , Y]}
+    return  {'X' : X, 'Y': Y}
 }
 
 var Z = Infer({method: 'enumerate', model: model5})
 
-viz(Z)
+viz.table(Z)
 ````
 
 Ekkor P(X=i,Y=j) = P(Y=j|X=i) P(X=i), azaz pl.: P(X=1,Y=1) = 1/8 * 1/2.
