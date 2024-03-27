@@ -1,4 +1,4 @@
-## Feltételes valószínűség
+## Feltételes valószínűség, függő változók
 
 Valószínűségi változók függhetnek egymástól.
 
