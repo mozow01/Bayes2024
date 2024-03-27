@@ -1,43 +1,12 @@
-## Pihenésképp egy érdekesség: "mem" függvény
-
-Tegyük fel, hogy hipotetikus emberek szemszínét szeretnénk generálni véletlenszerűen. 
-
-````javascript
-var szemszín = function (ember) {
-  return categorical({ps: [0.6, 0.2, 0.2], vs: ['barna','kék','szürke']})
-}
-
-var vektor = [szemszín('Pisti'), szemszín('Anna'), szemszín('Cili')]
-
-print(vektor)
-
-viz.auto(vektor)
-````
-
-A probléma, hogy ilyenkor ugyanannak az embernek egy másik híváskor más lesz a szemszíne. Ezt a mem-mel, mint egyfajta "feltétellel" kerülhetjük ki.
-
-
-````javascript
-var szemszín2 = mem(function (ember) {
-  return categorical({ps: [0.6, 0.2, 0.2], vs: ['barna','kék','szürke']})
-})
-
-var vektor2 = [szemszín2('Pisti'), szemszín2('Anna'), szemszín2('Pisti')]
-
-print(vektor2)
-
-viz.auto(vektor2)
-````
-
 ## Feltételes valószínűség
 
 Valószínűségi változók függhetnek egymástól.
 
 **Példa**
 
-X = pénzérmével fej vagy írás (boole (1/0) értékű változó (0.5, 0.5) kategorikus eloszással)
+X = pénzérmével fej vagy írás (boole (1|0) értékű változó (0.5, 0.5) kategorikus eloszással)
 
-Y = királyt húzása (1/0) magyar kártyávól, akkor és csak akkor, ha X = 1, és francia kártyából, ha X = 0.
+Y = királyt húzása (1|0) magyar kártyávól, akkor és csak akkor, ha X = 1, és francia kártyából, ha X = 0.
 
 |      |  X=1   | X=0 |  
 | ---  | --- | --- | 
