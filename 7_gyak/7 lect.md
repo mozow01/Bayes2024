@@ -25,7 +25,7 @@ Y | X = királyt húzása (1|0) magyar kártyából, ha X = 1, és francia kárt
 
 [![\\ \Pr(Y=y_j\mid X=x_i)=\frac{\Pr (Y=y_j\;\&\; X=x_i)}{\Pr (X=x_i)},\quad \Pr (X=x_i)\ne 0](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%3Dy_j%5Cmid%20X%3Dx_i)%3D%5Cfrac%7B%5CPr%20(Y%3Dy_j%5C%3B%5C%26%5C%3B%20X%3Dx_i)%7D%7B%5CPr%20(X%3Dx_i)%7D%2C%5Cquad%20%5CPr%20(X%3Dx_i)%5Cne%200)](#_)
 
-P(Y|X) -t úgy mondjuk ki, hogy Y valószínűsége feltéve, hogy X (probability of Y given X).
+P(Y|X) -t úgy mondjuk ki, hogy Y valószínűsége feltéve, hogy X adott (probability of Y given X).
 
 ````javascript
 var model5 = function () {
