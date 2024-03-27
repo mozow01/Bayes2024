@@ -82,13 +82,9 @@ DE ez is egy nagyon hasznos függvény. Egy interperetáció, ezt ez a szám azt
 
 ## Monty Hall- (vos Savant-) paradoxon
 
+<img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/The-Monty-Hall-Problem-e1623680322430.png" width=200>
+
 Adott 3 csukott ajtó mögött egy-egy nyeremény: 1 autó és 1-1 plüsskecske. Monty, a showman megkér minket arra, hogy tippeljük meg, hol az autó (ha eltaláljuk, a miénk lesz). Amikor ez megtörtént, akkor Monty kinyit egy ajtót, éspedig szigorúan azok közül egyet, amelyek mögött egy kecske van és nem mutattunk rá. Majd felteszi újra a kérdést: hol az autó. Érdemes-e megmásítanunk a döntésünket?
-
-🐑 🐑 🏎
-
-🚪 🚪 🚪
-
-🕺 👋
 
 A feladatot a joint eloszlás feltérképezésével oldjuk meg.
 |      |     | Y=1 |     |     | Y=2 |     |     | Y=3 |     | P(X) |
@@ -159,7 +155,5 @@ viz.marginals(eloszlás)
 ````
 
 Láthatóan a váltás a nyerő stratégia.
-
-
 
 
