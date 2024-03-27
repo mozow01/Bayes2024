@@ -17,7 +17,7 @@ Y | X = királyt húzása (1|0) magyar kártyából, ha X = 1, és francia kárt
 
 (Feltételes: leszűkítjük az elemi események terét a feltételre, az A eseményt teljesítő elemi részeseményekre, azaz innentől nem Ω, hanem A az összes elemi események tere.)
 
-"Awkward" jelülés:
+"Awkward" jelölés:
 
 [![\\ \Pr(Y\mid X)=\frac{\Pr (Y\cdot X)}{\Pr (X)},\quad \Pr (X)\ne 0](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%5Cmid%20X)%3D%5Cfrac%7B%5CPr%20(Y%5Ccdot%20X)%7D%7B%5CPr%20(X)%7D%2C%5Cquad%20%5CPr%20(X)%5Cne%200)](#_)
 
