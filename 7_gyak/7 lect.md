@@ -21,7 +21,7 @@ Y | X = királyt húzása (1|0) magyar kártyából, ha X = 1, és francia kárt
 
 [![\\ \Pr(Y\mid X)=\frac{\Pr (Y\cdot X)}{\Pr (X)},\quad \Pr (X)\ne 0](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%5Cmid%20X)%3D%5Cfrac%7B%5CPr%20(Y%5Ccdot%20X)%7D%7B%5CPr%20(X)%7D%2C%5Cquad%20%5CPr%20(X)%5Cne%200)](#_)
 
-... és amit jelent valójába: rögzített x1,x2,... y1,y2,... elemi kimenetelekkel:
+... és amit jelent valójában: rögzített x1,x2,... y1,y2,... elemi kimenetelekkel:
 
 [![\\ \Pr(Y=y_j\mid X=x_i)=\frac{\Pr (Y=y_j\;\&\; X=x_i)}{\Pr (X=x_i)},\quad \Pr (X=x_i)\ne 0](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%3Dy_j%5Cmid%20X%3Dx_i)%3D%5Cfrac%7B%5CPr%20(Y%3Dy_j%5C%3B%5C%26%5C%3B%20X%3Dx_i)%7D%7B%5CPr%20(X%3Dx_i)%7D%2C%5Cquad%20%5CPr%20(X%3Dx_i)%5Cne%200)](#_)
 
@@ -39,8 +39,26 @@ var Z = Infer({method: 'enumerate', model: model5})
 
 viz.table(Z)
 ````
+Tehát a 
 
-Ekkor P(X=i,Y=j) = P(Y=j|X=i) P(X=i), azaz pl.: P(X=1,Y=1) = 1/8 * 1/2.
+[![\\ j\mapsto \Pr(Y=y_j\mid X=x_i),\qquad X=x_i\quad const.](https://latex.codecogs.com/svg.latex?%5C%5C%20j%5Cmapsto%20%5CPr(Y%3Dy_j%5Cmid%20X%3Dx_i)%2C%5Cqquad%20X%3Dx_i%5Cquad%20const.)](#_)
+
+függvény valószínűségi eloszlás és **feltételes valószínűségi eloszlásnak** hívjuk.
+
+Az X*Y szintén eloszlás:
+
+[![\\ (i,j)\mapsto \Pr(Y=y_j\;\&\; X=x_i)](https://latex.codecogs.com/svg.latex?%5C%5C%20(i%2Cj)%5Cmapsto%20%5CPr(Y%3Dy_j%5C%3B%5C%26%5C%3B%20X%3Dx_i))](#_)
+
+az úgy nevezett **joint eloszlás.** Ez írja le teljes pontossággal a változók egymástól való függését. 
+
+A **szorzatszabály** szerint P(X=i,Y=j) = P(Y=j|X=i) P(X=i), azaz pl.: P(X=1,Y=1) = 1/8 * 1/2.
+
+[![\\ (i,j)\mapsto \Pr(Y=y_j\;\&\; X=x_i)= \Pr(Y=y_j\mid X=x_i)\cdot \Pr(X=x_i)](https://latex.codecogs.com/svg.latex?%5C%5C%20(i%2Cj)%5Cmapsto%20%5CPr(Y%3Dy_j%5C%3B%5C%26%5C%3B%20X%3Dx_i)%3D%20%5CPr(Y%3Dy_j%5Cmid%20X%3Dx_i)%5Ccdot%20%5CPr(X%3Dx_i))](#_)
+
+vagy az awkward jelöléssel: 
+
+[![\\ \Pr(Y\;\cdot\; X)= \Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(Y%5C%3B%5Ccdot%5C%3B%20X)%3D%20%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
+
 
 Ekkor (X,Y) eloszlása már igazi, együttes, "joint". 
 
