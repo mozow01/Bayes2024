@@ -13,7 +13,7 @@ Y | X = királyt húzása (1|0) magyar kártyából, ha X = 1, és francia kárt
 |  Y=1, ha X = ... |  1/8 | 1/13 | 
 |  Y=0, ha X = ... | 7/8 | 12/13  | 
 
-**Megjegyzés.** Ez a táblázat ilyenkor csak X rögzítésével lesz "igazi" eloszlás. A mögöttes eloszlás Y, azaz a "király húzása" csak közvetetten tudható. 
+**Megjegyzés.** Világos, hogy ez a táblázat NEM valószínűségi változó eloszlása. CSAK X rögzítésével lesz "igazi" eloszlás. A mögöttes eloszlás Y, azaz a "király húzása" csak közvetetten tudható. 
 
 (Feltételes: leszűkítjük az elemi események terét a feltételre, az A eseményt teljesítő elemi részeseményekre, azaz innentől nem Ω, hanem A az összes elemi események tere.)
 
