@@ -42,6 +42,20 @@ Programozd le Coq-ban a következő állítás bizonyítások bizonyítását:
 Lemma problem_1 : forall A B C : Prop, A /\ (B \/ C) -> (A /\ B) \/ (A /\ C).
 ````
 
-**2.2.**  forall A B : Prop, (A \/ ~A) -> ((A -> B) -> A) -> A.
+**2.2.**  
 
+````coq
+Lemma problem_2 : forall A B C : Prop, ((B -> A) /\ (C -> A)) -> ((B \/ C -> A)).
+````
 
+**2.3.** 
+
+````coq
+Lemma problem_3 : forall A B : Prop, (A \/ ~A) -> ((A -> B) -> A) -> A.
+````
+
+**2.4.** 
+
+````coq
+Lemma problem_4 : forall (U : Type) (A B : U -> Prop), (exists x, A x /\ B x) -> (exists x, A x) /\ (exists x, B x).
+````
