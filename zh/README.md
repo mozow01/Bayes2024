@@ -34,7 +34,7 @@ var output =
 
 ## 2. alkalom
 
-Programozd le Coq-ban a következő állítás bizonyítások bizonyítását:
+Programozd le Coq-ban a következő állítások bizonyítását:
 
 **2.1.**  
 
