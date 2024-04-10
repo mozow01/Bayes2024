@@ -159,7 +159,7 @@ Ilyennel már találkoztunk. Nem dobáltunk kockát, nem húztunk kártyát, a g
 
 **Bayesiánus következtetés:** Az előbbi program feladatát megfordítjuk: megpróbálunk visszakövetkeztetni arra, hogy egy valóságosan mért (tehát nem szimulált) Y = y **adat** a generatív modell milyen X = x **paraméterértékeire** tud generálódni. 
 
-**Joint eloszlást** kapunk, ha a paratméterek X és a (szimulált vagy prediktált) adatok Y terének szorzatán feltételezünk egy P(X,Y) valószínűségi eloszlást, amelyet a _szorzatszabállyal_ számítunk ki (kétféleképpen)
+**Joint eloszlást** kapunk, ha a paratméterek vagy látens X változó és a (szimulált vagy prediktált) adatok vagy megfigyelt Y változó terének szorzatán feltételezünk egy P(X,Y) valószínűségi eloszlást, amelyet a _szorzatszabállyal_ számítunk ki (kétféleképpen)
 
 (Annak a valószínűsége, hogy adott paraméter mellett az adat éppen a megfigyelt: az adat valószínűsége az X paraméterű modellben szorozva (súlyozva)  a modell valószínűségével)
 
@@ -169,19 +169,13 @@ Ilyennel már találkoztunk. Nem dobáltunk kockát, nem húztunk kártyát, a g
 
  [![\\  \Pr(X\cdot Y)=\Pr(X\mid Y)\cdot \Pr(Y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(X%5Cmid%20Y)%5Ccdot%20%5CPr(Y))](#_)
 
-
-
-
-
 Az adat és a generatív modell még nem elég, mert a paraméterteret is be kell népesíteni paraméterértékekkel és ehhez valami előzetes tudással kell rendelkeznünk arról, hogy mit gondolunk ezek eloszlásáról. Ez a joint eloszlás egy marginális eloszlása, a P(X) **prior eloszlás**.
-
-Az általános P(X,Y) eloszlás általában nem ismert minden Y-ra, mert csak néhány Y mért adatot ismerünk (itt most y-t). 
 
 A **likelihood függvény** az 
 
-<img src="https://render.githubusercontent.com/render/math?math=x%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx)">
+[![\\ x\mapsto \Pr(Y=y\mid X=x)](https://latex.codecogs.com/svg.latex?%5C%5C%20x%5Cmapsto%20%5CPr(Y%3Dy%5Cmid%20X%3Dx))](#_)
 
-függvény, rögzített y adatra és arra használhatjuk, hogy a legjobb paraméterértéket meghatározzuk belőle. Világos, hogy ez nem ugyanaz, mint az 
+függvény. Ha tudjuk a megfigyelt változó értékét, azaz az adatot, akkor akkor a likelihood megmondja, hogy a modellekben ennek az adatnak mekkora a valószínűsége. Ezt az értéket generálja a generatív modell. Arra is használhatjuk, hogy a legvalószínűbb paraméterértéket (modellt) meghatározzuk belőle, amelyet maximum likelihood módszernek nevezünk és egyetlen arg-max értéket ad vissza. Világos, hogy ez nem ugyanaz, mint az 
 
 <img src="https://render.githubusercontent.com/render/math?math=y%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx)">
 
