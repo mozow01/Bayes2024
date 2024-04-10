@@ -177,19 +177,17 @@ A **likelihood függvény** az
 
 függvény. Ha tudjuk a megfigyelt változó értékét, azaz az adatot, akkor akkor a likelihood megmondja, hogy a modellekben ennek az adatnak mekkora a valószínűsége. Ezt az értéket generálja a generatív modell. Arra is használhatjuk, hogy a legvalószínűbb paraméterértéket (modellt) meghatározzuk belőle, amelyet maximum likelihood módszernek nevezünk és egyetlen arg-max értéket ad vissza. Világos, hogy ez nem ugyanaz, mint az 
 
-<img src="https://render.githubusercontent.com/render/math?math=y%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx)">
+[![\\ x\mapsto \Pr(X=x)\mid Y=y) ](https://latex.codecogs.com/svg.latex?%5C%5C%20x%5Cmapsto%20%5CPr(X%3Dx)%5Cmid%20Y%3Dy)%20)](#_)
 
-rögzített x-re, ami egy valószínűségi eloszlás és azt mondja meg, hogy milyen predikciót tudunk tenni az adatokra, ha a paraméter értéke a rögzített x. A likelihood maximum feladat az 
+ami egy igazi valószínűségi eloszlás. De közük vagy egymáshoz:
 
-<img src="https://render.githubusercontent.com/render/math?math=x_m%3D%5Cmathrm%7Bargmax%7D(x%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx))"> 
+[![\\ \Pr(X\cdot Y)= \Pr(X\mid Y)\cdot \Pr(Y)=\Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%5Ccdot%20Y)%3D%20%5CPr(X%5Cmid%20Y)%5Ccdot%20%5CPr(Y)%3D%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
 
-érték meghatározása, ami az a paraméterérték, amire a likelihood függvény maximális. Ha megvan ez az x<sub>m</sub>, akkor az y ↦ P( Y = y | X = x<sub>m</sub> ) függvény az adatokat prediktáló eloszlás. 
+Ahonnan P( X | Y = y ) **posteriori eloszlás** eloszlás meghatározható. Ez a P(X) prior élesítése a mért adatok alapján, ami a likelihood függvényből és a priorból a Bayes-tételen keresztül már kiszámítható:
 
-Vegyük észre, hogy a likelihood függvény kiszámítható az adatokból! Ha sokszor lefuttatjuk a modellt és kidobjuk a GM(x) = y egyenletet nem teljesítő adatokat, akkor megkereshető lesz az argmax.
+[![\\ \Pr(X\mid Y)\cdot =\dfrac{\Pr(Y\mid X)\cdot \Pr(X)}{\Pr(Y)}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%5Cmid%20Y)%5Ccdot%20%3D%5Cdfrac%7B%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X)%7D%7B%5CPr(Y)%7D)](#_)
 
-A likelihood maximum módszer azonban semmit sem kezd a priorral, csak a generatív modellről mond valamit (bár arról elég sokat).
-
-A P( X | Y = y ) **posteriori eloszlás** viszont a P(X) prior élesítése a mért adatok alapján, ami a likelihood függvényből és a priorból a Bayes-tételen keresztül már kiszámítható  
+**ami a Bayes-formula.**
 
 > A **bayesiánus eljárás** tehát 
 > 
