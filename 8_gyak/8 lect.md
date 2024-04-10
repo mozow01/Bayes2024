@@ -150,7 +150,7 @@ viz.marginals(output);
 Szemben az egyenletes priorral, ami komolyan veszi a k=19 értéket is és ennek megfelelően valahova 10-re helyezi a k várható értékét a dogmatikus prior diszkreditálja a k=19-et.
 
 ## Bayesiánus bestiárium
-
+ 
 **Generatív modell:**
 
 Egy generatív modell olyan függvény, ami nagy adatmennyiséget képes algoritmikusan generálni. Az algoritmus bemenete a **paraméterek,** kimenete a **szimulált adat.** Pszeudo-random generátor, amely úgy produkálja az adatokat, hogy azok nagy átlagban egy adott valószínűségi eloszlásnak megfelelőek legyenek.
