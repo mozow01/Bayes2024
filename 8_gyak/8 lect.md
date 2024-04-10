@@ -179,11 +179,11 @@ függvény. Ha tudjuk a megfigyelt változó értékét, azaz az adatot, akkor a
 
 [![\\ y\mapsto \Pr(Y=y\mid X=x)](https://latex.codecogs.com/svg.latex?%5C%5C%20y%5Cmapsto%20%5CPr(Y%3Dy%5Cmid%20X%3Dx))](#_)
 
-ami egy igazi valószínűségi eloszlás. De közük vagy egymáshoz:
+ami egy igazi valószínűségi eloszlás. Ami minket érdekel, az a P( X | Y = y ) posteriori eloszlás, ami a szorzatszabályból levezethető:
 
 [![\\ \Pr(X\cdot Y)= \Pr(X\mid Y)\cdot \Pr(Y)=\Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%5Ccdot%20Y)%3D%20%5CPr(X%5Cmid%20Y)%5Ccdot%20%5CPr(Y)%3D%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
 
-Ahonnan P( X | Y = y ) **posteriori eloszlás** eloszlás meghatározható. Ez a P(X) prior élesítése a mért adatok alapján, ami a likelihood függvényből és a priorból a Bayes-tételen keresztül már kiszámítható:
+A P( X | Y = y ) **posteriori eloszlás** eloszlás meghatározható a P(X) prior élesítésével a mért adatok alapján, ami a likelihood függvényből és a priorból a Bayes-tételen keresztül már kiszámítható:
 
 [![\\ \Pr(X\mid Y)\cdot =\dfrac{\Pr(Y\mid X)\cdot \Pr(X)}{\Pr(Y)}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%5Cmid%20Y)%5Ccdot%20%3D%5Cdfrac%7B%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X)%7D%7B%5CPr(Y)%7D)](#_)
 
