@@ -177,7 +177,7 @@ A **likelihood függvény** az
 
 függvény. Ha tudjuk a megfigyelt változó értékét, azaz az adatot, akkor akkor a likelihood megmondja, hogy a modellekben ennek az adatnak mekkora a valószínűsége. Ezt az értéket generálja a generatív modell. Arra is használhatjuk, hogy a legvalószínűbb paraméterértéket (modellt) meghatározzuk belőle, amelyet maximum likelihood módszernek nevezünk és egyetlen arg-max értéket ad vissza. Világos, hogy ez nem ugyanaz, mint az 
 
-[![\\ x\mapsto \Pr(X=x)\mid Y=y) ](https://latex.codecogs.com/svg.latex?%5C%5C%20x%5Cmapsto%20%5CPr(X%3Dx)%5Cmid%20Y%3Dy)%20)](#_)
+[![\\ y\mapsto \Pr(Y=y\mid X=x)](https://latex.codecogs.com/svg.latex?%5C%5C%20y%5Cmapsto%20%5CPr(Y%3Dy%5Cmid%20X%3Dx))](#_)
 
 ami egy igazi valószínűségi eloszlás. De közük vagy egymáshoz:
 
