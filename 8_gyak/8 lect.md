@@ -162,10 +162,12 @@ Ilyennel már találkoztunk. Nem dobáltunk kockát, nem húztunk kártyát, a g
 **Joint eloszlást** kapunk, ha a paratméterek X és a (szimulált vagy prediktált) adatok Y terének szorzatán feltételezünk egy P(X,Y) valószínűségi eloszlást, amelyet a _szorzatszabállyal_ számítunk ki (kétféleképpen)
 
 (Annak a valószínűsége, hogy adott paraméter mellett az adat éppen a megfigyelt: az adat valószínűsége az X paraméterű modellben szorozva (súlyozva)  a modell valószínűségével)
-[![\\  \Pr(X\cdot Y)=\Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
+
+: [![\\  \Pr(X\cdot Y)=\Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
 
 (Annak a valószínűsége, hogy adott paraméter mellett az adat éppen a megfigyelt: az X paraméterű modell valószínűsége, fetéve, hogy az adat a megfigyelt értékű, szorzva (súlyozva) az adat valószínűségével)
-[![\\  \Pr(X\cdot Y)=\Pr(X\mid Y)\cdot \Pr(Y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(X%5Cmid%20Y)%5Ccdot%20%5CPr(Y))](#_)
+
+: [![\\  \Pr(X\cdot Y)=\Pr(X\mid Y)\cdot \Pr(Y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(X%5Cmid%20Y)%5Ccdot%20%5CPr(Y))](#_)
 
 
 
