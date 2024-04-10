@@ -149,3 +149,67 @@ viz.marginals(output);
 
 Szemben az egyenletes priorral, ami komolyan veszi a k=19 értéket is és ennek megfelelően valahova 10-re helyezi a k várható értékét a dogmatikus prior diszkreditálja a k=19-et.
 
+## Bayesiánus bestiárium
+
+**Generatív modell:**
+
+Egy generatív modell olyan függvény, ami nagy adatmennyiséget képes algoritmikusan generálni. Az algoritmus bemenete a **paraméterek,** kimenete a **szimulált adat.** Pszeudo-random generátor, amely úgy produkálja az adatokat, hogy azok nagy átlagban egy adott valószínűségi eloszlásnak megfelelőek legyenek.
+
+Ilyennel már találkoztunk. Nem dobáltunk kockát, nem húztunk kártyát, a gép elvégezte helyettünk. Képesek voltunk kockadobást, laphúzást szimulálni programmal.
+
+**Bayesiánus következtetés:** Az előbbi program feladatát megfordítjuk: megpróbálunk visszakövetkeztetni arra, hogy egy valóságosan mért (tehát nem szimulált) Y = y **adat** a generatív modell milyen X = x **paraméterértékeire** tud generálódni. 
+
+**Joint eloszlást** kapunk, ha a paratméterek X és a (szimulált vagy prediktált) adatok Y terének szorzatán feltételezünk egy P(X,Y) valószínűségi eloszlást, amelyet a _szorzatszabállyal_ számítunk ki (kétféleképpen)
+
+(Annak a valószínűsége, hogy adott paraméter mellett az adat éppen a megfigyelt: az adat valószínűsége az X paraméterű modellben szorozva (súlyozva)  a modell valószínűségével)
+[![\\  \Pr(X\cdot Y)=\Pr(Y\mid X)\cdot \Pr(X)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(Y%5Cmid%20X)%5Ccdot%20%5CPr(X))](#_)
+
+(Annak a valószínűsége, hogy adott paraméter mellett az adat éppen a megfigyelt: az X paraméterű modell valószínűsége, fetéve, hogy az adat a megfigyelt értékű, szorzva (súlyozva) az adat valószínűségével)
+[![\\  \Pr(X\cdot Y)=\Pr(X\mid Y)\cdot \Pr(Y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5CPr(X%5Ccdot%20Y)%3D%5CPr(X%5Cmid%20Y)%5Ccdot%20%5CPr(Y))](#_)
+
+
+
+
+
+Az adat és a generatív modell még nem elég, mert a paraméterteret is be kell népesíteni paraméterértékekkel és ehhez valami előzetes tudással kell rendelkeznünk arról, hogy mit gondolunk ezek eloszlásáról. Ez a joint eloszlás egy marginális eloszlása, a P(X) **prior eloszlás**.
+
+Az általános P(X,Y) eloszlás általában nem ismert minden Y-ra, mert csak néhány Y mért adatot ismerünk (itt most y-t). 
+
+A **likelihood függvény** az 
+
+<img src="https://render.githubusercontent.com/render/math?math=x%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx)">
+
+függvény, rögzített y adatra és arra használhatjuk, hogy a legjobb paraméterértéket meghatározzuk belőle. Világos, hogy ez nem ugyanaz, mint az 
+
+<img src="https://render.githubusercontent.com/render/math?math=y%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx)">
+
+rögzített x-re, ami egy valószínűségi eloszlás és azt mondja meg, hogy milyen predikciót tudunk tenni az adatokra, ha a paraméter értéke a rögzített x. A likelihood maximum feladat az 
+
+<img src="https://render.githubusercontent.com/render/math?math=x_m%3D%5Cmathrm%7Bargmax%7D(x%5Cmapsto%20P(Y%3Dy%5Cmid%20X%3Dx))"> 
+
+érték meghatározása, ami az a paraméterérték, amire a likelihood függvény maximális. Ha megvan ez az x<sub>m</sub>, akkor az y ↦ P( Y = y | X = x<sub>m</sub> ) függvény az adatokat prediktáló eloszlás. 
+
+Vegyük észre, hogy a likelihood függvény kiszámítható az adatokból! Ha sokszor lefuttatjuk a modellt és kidobjuk a GM(x) = y egyenletet nem teljesítő adatokat, akkor megkereshető lesz az argmax.
+
+A likelihood maximum módszer azonban semmit sem kezd a priorral, csak a generatív modellről mond valamit (bár arról elég sokat).
+
+A P( X | Y = y ) **posteriori eloszlás** viszont a P(X) prior élesítése a mért adatok alapján, ami a likelihood függvényből és a priorból a Bayes-tételen keresztül már kiszámítható  
+
+> A **bayesiánus eljárás** tehát 
+> 
+> 1. a P(X) priornak megfelelő X-eket generálva
+> 
+> 2. elkészíti azoknak az X-eknek az eloszlását, amire
+> > GM(X) = y,
+> 
+> 3. ebből gyárja le a P( X | Y = y ) _poszteriort_ az 
+> > P( X | Y ) = P( Y | X ) P (X) / P(Y) 
+> 
+> Bayest-tétel felhasználásával. Itt P(Y=y) konstans, ezért érvényes a 
+> > P( X | Y=y ) α P( Y=y | X ) P (X) 
+> 
+> arányosság, ezért csak 
+> 
+> 4. normálni kell az x ↦ P( Y=y | X=x ) P (X=x)-t és máris megvan a poszterior, ami tehát azt írja le, hogy milyen az azon fizikailag is paraméterértékek _eloszlása,_ amiből az adtat származhatott. 
+
+
