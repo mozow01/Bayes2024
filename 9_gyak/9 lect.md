@@ -66,6 +66,9 @@ var vizes = esik && locsoló
                         ? flip(0.9) 
                         : flip(0.1);
 ````
+Emlékezzünk a Bayes-tételre:
+
+[![\\ \Pr(\vartheta)\;\leadsto\;\Pr(\vartheta\mid X )=\dfrac{\Pr(X\mid \vartheta)\cdot \Pr(\vartheta)}{\Pr(X)}\\\\ \\ \Pr(\vartheta\mid X )\cdot \Pr(X)=\Pr(X,\vartheta)=\Pr(\vartheta\mid X )\cdot \Pr(X)\\\\ \\ \Pr(X=x_k)=\sum\limits_{l=1}^L\Pr(X=x_k,\vartheta=p_l) \\ \\\\ \\ \Pr(\tilde{X})=\sum\limits_{l=1}^L\Pr(\tilde{X}=x_k,\vartheta=p_l)\\\\ \\ \Pr(\tilde{X}=x_k\mid X=x_n)=\sum\limits_{l=1}^L\Pr(\tilde{X}=x_k\mid\vartheta=p_l,X=x_n)\\\\ \\  \\  ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(%5Cvartheta)%5C%3B%5Cleadsto%5C%3B%5CPr(%5Cvartheta%5Cmid%20X%20)%3D%5Cdfrac%7B%5CPr(X%5Cmid%20%5Cvartheta)%5Ccdot%20%5CPr(%5Cvartheta)%7D%7B%5CPr(X)%7D%5C%5C%5C%5C%20%5C%5C%20%5CPr(%5Cvartheta%5Cmid%20X%20)%5Ccdot%20%5CPr(X)%3D%5CPr(X%2C%5Cvartheta)%3D%5CPr(%5Cvartheta%5Cmid%20X%20)%5Ccdot%20%5CPr(X)%5C%5C%5C%5C%20%5C%5C%20%5CPr(X%3Dx_k)%3D%5Csum%5Climits_%7Bl%3D1%7D%5EL%5CPr(X%3Dx_k%2C%5Cvartheta%3Dp_l)%20%5C%5C%20%5C%5C%5C%5C%20%5C%5C%20%5CPr(%5Ctilde%7BX%7D)%3D%5Csum%5Climits_%7Bl%3D1%7D%5EL%5CPr(%5Ctilde%7BX%7D%3Dx_k%2C%5Cvartheta%3Dp_l)%5C%5C%5C%5C%20%5C%5C%20%5CPr(%5Ctilde%7BX%7D%3Dx_k%5Cmid%20X%3Dx_n)%3D%5Csum%5Climits_%7Bl%3D1%7D%5EL%5CPr(%5Ctilde%7BX%7D%3Dx_k%5Cmid%5Cvartheta%3Dp_l%2CX%3Dx_n)%5C%5C%5C%5C%20%5C%5C%20%20%5C%5C%20%20)](#_)
 
 A joint eloszlás faktorizációja tehát a következő:
 
