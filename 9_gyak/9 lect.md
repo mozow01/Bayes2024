@@ -88,11 +88,11 @@ Ez utóbbi kettő marginális eloszlások:
  
 Bizonyítás:
 
-[![\\ \Pr(\vartheta=t\mid X=d )\cdot \Pr(X=d)=\Pr(\vartheta=t,X=d)=\Pr(X=d\mid \vartheta=t )\cdot \Pr(\vartheta=t\)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(%5Cvartheta%3Dt%5Cmid%20X%3Dd%20)%5Ccdot%20%5CPr(X%3Dd)%3D%5CPr(%5Cvartheta%3Dt%2CX%3Dd)%3D%5CPr(X%3Dd%5Cmid%20%5Cvartheta%3Dt%20)%5Ccdot%20%5CPr(%5Cvartheta%3Dt%5C))](#_)
+[![\\ \Pr(\vartheta=t,X=d)=\Pr(\vartheta=t\mid X=d )\cdot \Pr(X=d)\\ \\ \Pr(X=d,\vartheta=t)=\Pr(X=d\mid \vartheta=t )\cdot \Pr(\vartheta=t\)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(%5Cvartheta%3Dt%2CX%3Dd)%3D%5CPr(%5Cvartheta%3Dt%5Cmid%20X%3Dd%20)%5Ccdot%20%5CPr(X%3Dd)%5C%5C%20%5C%5C%20%5CPr(X%3Dd%2C%5Cvartheta%3Dt)%3D%5CPr(X%3Dd%5Cmid%20%5Cvartheta%3Dt%20)%5Ccdot%20%5CPr(%5Cvartheta%3Dt%5C))](#_)
 
-[![\\ \Pr(\vartheta)\;\leadsto\;\Pr(\vartheta\mid X )=\dfrac{\Pr(X\mid \vartheta)\cdot \Pr(\vartheta)}{\Pr(X)}\\\\ \\ \Pr(\vartheta\mid X )\cdot \Pr(X)=\Pr(X,\vartheta)=\Pr(\vartheta\mid X )\cdot \Pr(X)\\\\ \\ \Pr(X=x_k)=\sum\limits_{l=1}^L\Pr(X=x_k,\vartheta=p_l) \\ \\\\ \\ \Pr(\tilde{X})=\sum\limits_{l=1}^L\Pr(\tilde{X}=x_k,\vartheta=p_l)\\\\ \\ \Pr(\tilde{X}=x_k\mid X=x_n)=\sum\limits_{l=1}^L\Pr(\tilde{X}=x_k\mid\vartheta=p_l,X=x_n)\\\\ \\  \\  ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(%5Cvartheta)%5C%3B%5Cleadsto%5C%3B%5CPr(%5Cvartheta%5Cmid%20X%20)%3D%5Cdfrac%7B%5CPr(X%5Cmid%20%5Cvartheta)%5Ccdot%20%5CPr(%5Cvartheta)%7D%7B%5CPr(X)%7D%5C%5C%5C%5C%20%5C%5C%20%5CPr(%5Cvartheta%5Cmid%20X%20)%5Ccdot%20%5CPr(X)%3D%5CPr(X%2C%5Cvartheta)%3D%5CPr(%5Cvartheta%5Cmid%20X%20)%5Ccdot%20%5CPr(X)%5C%5C%5C%5C%20%5C%5C%20%5CPr(X%3Dx_k)%3D%5Csum%5Climits_%7Bl%3D1%7D%5EL%5CPr(X%3Dx_k%2C%5Cvartheta%3Dp_l)%20%5C%5C%20%5C%5C%5C%5C%20%5C%5C%20%5CPr(%5Ctilde%7BX%7D)%3D%5Csum%5Climits_%7Bl%3D1%7D%5EL%5CPr(%5Ctilde%7BX%7D%3Dx_k%2C%5Cvartheta%3Dp_l)%5C%5C%5C%5C%20%5C%5C%20%5CPr(%5Ctilde%7BX%7D%3Dx_k%5Cmid%20X%3Dx_n)%3D%5Csum%5Climits_%7Bl%3D1%7D%5EL%5CPr(%5Ctilde%7BX%7D%3Dx_k%5Cmid%5Cvartheta%3Dp_l%2CX%3Dx_n)%5C%5C%5C%5C%20%5C%5C%20%20%5C%5C%20%20)](#_)
+És persze a joint eloszlásokra: P(X,𝜗)=P(𝜗,X). Qed.
 
-A joint eloszlás faktorizációja tehát a következő:
+A **példabeli** joint eloszlás faktorizációja tehát a következő:
 
 [![\\ \begin{align*} \\ p(h,f,l,e,v) &=p(v|f,l)\cdot p(l,f)= \qquad (\;p(h,l,f|v)\cdot p(v)\;)\\ \\ &= p(v|f,l)\cdot p(l,f|h)\cdot p(h)=\\ \\ &=p(v|f,l)\cdot p(l|h)\cdot p(f|h)\cdot p(h) \\ \end{alogn*}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5Cbegin%7Balign*%7D%20%5C%5C%20p(h%2Cf%2Cl%2Ce%2Cv)%20%26%3Dp(v%7Cf%2Cl)%5Ccdot%20p(l%2Cf)%3D%20%5Cqquad%20(%5C%3Bp(h%2Cl%2Cf%7Cv)%5Ccdot%20p(v)%5C%3B)%5C%5C%20%5C%5C%20%26%3D%20p(v%7Cf%2Cl)%5Ccdot%20p(l%2Cf%7Ch)%5Ccdot%20p(h)%3D%5C%5C%20%5C%5C%20%26%3Dp(v%7Cf%2Cl)%5Ccdot%20p(l%7Ch)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%20%5C%5C%20%5Cend%7Balogn*%7D)](#_)
 
