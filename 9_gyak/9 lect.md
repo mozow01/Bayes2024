@@ -96,10 +96,9 @@ A **példabeli** joint eloszlás faktorizációja tehát a következő:
 
 [![\\ \\ \begin{align*} \\ p(h,f,l,e,v) &=p(v|l,e)\cdot p(l,e)= \qquad (\;p(h,l,f,e|v)\cdot p(v)\;)\\ \\ &= p(v|f,e)\cdot p(l,e|f)\cdot p(f)=\\ \\ &=p(v|f,e)\cdot p(l|f)\cdot p(e|f)\cdot p(f|h) \cdot p(h) \\ \end{alogn*}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5C%5C%20%5Cbegin%7Balign*%7D%20%5C%5C%20p(h%2Cf%2Cl%2Ce%2Cv)%20%26%3Dp(v%7Cl%2Ce)%5Ccdot%20p(l%2Ce)%3D%20%5Cqquad%20(%5C%3Bp(h%2Cl%2Cf%2Ce%7Cv)%5Ccdot%20p(v)%5C%3B)%5C%5C%20%5C%5C%20%26%3D%20p(v%7Cf%2Ce)%5Ccdot%20p(l%2Ce%7Cf)%5Ccdot%20p(f)%3D%5C%5C%20%5C%5C%20%26%3Dp(v%7Cf%2Ce)%5Ccdot%20p(l%7Cf)%5Ccdot%20p(e%7Cf)%5Ccdot%20p(f%7Ch)%20%5Ccdot%20p(h)%20%5C%5C%20%5Cend%7Balogn*%7D)](#_)
 
-A p(l,e,f,h) ----> p(l,e,f,h|v) Bayes-frissítés végeredménye, azaz a poszterior eloszlást a Bayes-tétel alapján kapjuk:
+A p(l,e,f,h) ~> p(l,e,f,h|v) **Bayes-frissítés** végeredménye, azaz a poszterior eloszlást a Bayes-tétel alapján kapjuk:
 
 [![\\ \;p(l,e,f,h|v)=\dfrac{p(v|l,e)\cdot p(l|f)\cdot p(e|f)\cdot p(f|h)\cdot p(h)}{p(v)}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5C%3Bp(l%2Ce%2Cf%2Ch%7Cv)%3D%5Cdfrac%7Bp(v%7Cl%2Ce)%5Ccdot%20p(l%7Cf)%5Ccdot%20p(e%7Cf)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%7D%7Bp(v)%7D)](#_)
-vagy 
 
 Itt a **likelihood függvény,** p(v|l,e) p(l|f) p(e|f) p(f|h) (mondjuk), vagyis az a függvény, megadja a generatív modellt, és ez még a priorral való szorzás után sem lesz igazi valószínűségi eloszlás, de az adat rögzítésével (márpedig az adatok rögzítettek), arányos lesz ezzel. Az arányossági tényező 1/p(v), amivel normáljuk a likelihood-prior szorzatot, és az már eloszlás lesz.
 
