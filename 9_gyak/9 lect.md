@@ -351,3 +351,22 @@ Közös házi:
 
 2.) Egy tengerparton homokos és sóderos partszakasz is van. A sirályok szívesebben időznek a sóderoson. Készítsünk generatív modellt, amelyik generálja az adatokat! Ha el kéne dönteni, hogy egy létező jelenség-e, akkor milyen két modellt ütköztetnénk?
 
+````
+var model = function() {
+  
+  var i = categorical({ps:[0.5,0.5], 
+                            vs: ['modell', 'null modell']});
+   
+  
+  var p = (i==="modell") ? beta(10,1) : beta(50,50);
+  
+    observe(Binomial({p : p, n: 20}), 15);
+
+return {i: i, p : p};
+};
+
+var output = Infer({model: model, samples: 1000, method: 'MCMC'});
+
+viz.marginals(output);
+````
+
