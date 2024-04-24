@@ -345,7 +345,7 @@ viz.marginals(output_2)
 
 Közös házi: 
 
-<img src="[[https://github.com/mozow01/cog_compsci/blob/main/orak/files/8628b1.jpg](https://github.com/mozow01/Bayes2024/blob/main/japan.png)](https://github.com/mozow01/Bayes2024/blob/main/japan.png)" height=200>
+<img src="https://github.com/mozow01/cog_compsci/blob/main/orak/files/8628b1.jpg" height=200>
 
 
 
