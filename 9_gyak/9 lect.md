@@ -92,7 +92,7 @@ Bizonyítás:
 
 És persze a joint eloszlásokra: P(X,𝜗)=P(𝜗,X). Qed.
 
-A **példabeli** joint eloszlás faktorizációja tehát a következő:
+A **példabeli** joint eloszlás faktorizációja tehát a következő: 
 
 [![\\ \begin{align*} \\ p(h,f,l,e,v) &=p(v|f,l)\cdot p(l,f)= \qquad (\;p(h,l,f|v)\cdot p(v)\;)\\ \\ &= p(v|f,l)\cdot p(l,f|h)\cdot p(h)=\\ \\ &=p(v|f,l)\cdot p(l|h)\cdot p(f|h)\cdot p(h) \\ \end{alogn*}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5Cbegin%7Balign*%7D%20%5C%5C%20p(h%2Cf%2Cl%2Ce%2Cv)%20%26%3Dp(v%7Cf%2Cl)%5Ccdot%20p(l%2Cf)%3D%20%5Cqquad%20(%5C%3Bp(h%2Cl%2Cf%7Cv)%5Ccdot%20p(v)%5C%3B)%5C%5C%20%5C%5C%20%26%3D%20p(v%7Cf%2Cl)%5Ccdot%20p(l%2Cf%7Ch)%5Ccdot%20p(h)%3D%5C%5C%20%5C%5C%20%26%3Dp(v%7Cf%2Cl)%5Ccdot%20p(l%7Ch)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%20%5C%5C%20%5Cend%7Balogn*%7D)](#_)
 
