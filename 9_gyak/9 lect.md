@@ -347,7 +347,7 @@ Közös házi:
 
 1.) Készítsük el az alábbiak webppl kódját!
 
-<img src="https://github.com/mozow01/cog_compsci/blob/main/orak/files/8628b1.jpg" height=200>
+<img src="https://github.com/mozow01/Bayes2024/blob/main/japan.png" height=200>
 
 2.) Egy tengerparton homokos és sóderos partszakasz is van. A sirályok szívesebben időznek a sóderoson. Készítsünk generatív modellt, amelyik generálja az adatokat! Ha el kéne dönteni, hogy egy létező jelenség-e, akkor milyen két modellt ütköztetnénk?
 
