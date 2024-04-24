@@ -94,17 +94,14 @@ Bizonyítás:
 
 A **példabeli** joint eloszlás faktorizációja tehát a következő: 
 
-[![\\ \begin{align*} \\ p(h,f,l,e,v) &=p(v|f,l)\cdot p(l,f)= \qquad (\;p(h,l,f|v)\cdot p(v)\;)\\ \\ &= p(v|f,l)\cdot p(l,f|h)\cdot p(h)=\\ \\ &=p(v|f,l)\cdot p(l|h)\cdot p(f|h)\cdot p(h) \\ \end{alogn*}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5Cbegin%7Balign*%7D%20%5C%5C%20p(h%2Cf%2Cl%2Ce%2Cv)%20%26%3Dp(v%7Cf%2Cl)%5Ccdot%20p(l%2Cf)%3D%20%5Cqquad%20(%5C%3Bp(h%2Cl%2Cf%7Cv)%5Ccdot%20p(v)%5C%3B)%5C%5C%20%5C%5C%20%26%3D%20p(v%7Cf%2Cl)%5Ccdot%20p(l%2Cf%7Ch)%5Ccdot%20p(h)%3D%5C%5C%20%5C%5C%20%26%3Dp(v%7Cf%2Cl)%5Ccdot%20p(l%7Ch)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%20%5C%5C%20%5Cend%7Balogn*%7D)](#_)
+[![\\ \\ \begin{align*} \\ p(h,f,l,e,v) &=p(v|l,e)\cdot p(l,e)= \qquad (\;p(h,l,f,e|v)\cdot p(v)\;)\\ \\ &= p(v|f,e)\cdot p(l,e|f)\cdot p(f)=\\ \\ &=p(v|f,e)\cdot p(l|f)\cdot p(e|f)\cdot p(f|h) \cdot p(h) \\ \end{alogn*}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5C%5C%20%5Cbegin%7Balign*%7D%20%5C%5C%20p(h%2Cf%2Cl%2Ce%2Cv)%20%26%3Dp(v%7Cl%2Ce)%5Ccdot%20p(l%2Ce)%3D%20%5Cqquad%20(%5C%3Bp(h%2Cl%2Cf%2Ce%7Cv)%5Ccdot%20p(v)%5C%3B)%5C%5C%20%5C%5C%20%26%3D%20p(v%7Cf%2Ce)%5Ccdot%20p(l%2Ce%7Cf)%5Ccdot%20p(f)%3D%5C%5C%20%5C%5C%20%26%3Dp(v%7Cf%2Ce)%5Ccdot%20p(l%7Cf)%5Ccdot%20p(e%7Cf)%5Ccdot%20p(f%7Ch)%20%5Ccdot%20p(h)%20%5C%5C%20%5Cend%7Balogn*%7D)](#_)
 
-A p(h,l,f) ----> p(h,l,f|v) Bayes-frissítés végeredménye, azaz a poszterior eloszlást a Bayes-tétel alapján kapjuk:
+A p(l,e,f,h) ----> p(l,e,f,h|v) Bayes-frissítés végeredménye, azaz a poszterior eloszlást a Bayes-tétel alapján kapjuk:
 
-[![\\ \;p(h,l,f|v)=\dfrac{p(v|f,l)\cdot p(l|h)\cdot p(f|h)\cdot p(h)}{p(v)} \\ ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5C%3Bp(h%2Cl%2Cf%7Cv)%3D%5Cdfrac%7Bp(v%7Cf%2Cl)%5Ccdot%20p(l%7Ch)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%7D%7Bp(v)%7D%20%5C%5C%20)](#_)
-
+[![\\ \;p(l,e,f,h|v)=\dfrac{p(v|l,e)\cdot p(l|f)\cdot p(e|f)\cdot p(f|h)\cdot p(h)}{p(v)}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5C%3Bp(l%2Ce%2Cf%2Ch%7Cv)%3D%5Cdfrac%7Bp(v%7Cl%2Ce)%5Ccdot%20p(l%7Cf)%5Ccdot%20p(e%7Cf)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%7D%7Bp(v)%7D)](#_)
 vagy 
 
-[![\\  \\ p(h,l,f|v)=\dfrac{p(v|f,l)\cdot p(l|h)\cdot p(f|h)\cdot p(h)}{p(v)}=\dfrac{p(v|h,f,l)\cdot p(h,l,f)}{p(v)} \\ ](https://latex.codecogs.com/svg.latex?%5C%5C%20%20%5C%5C%20p(h%2Cl%2Cf%7Cv)%3D%5Cdfrac%7Bp(v%7Cf%2Cl)%5Ccdot%20p(l%7Ch)%5Ccdot%20p(f%7Ch)%5Ccdot%20p(h)%7D%7Bp(v)%7D%3D%5Cdfrac%7Bp(v%7Ch%2Cf%2Cl)%5Ccdot%20p(h%2Cl%2Cf)%7D%7Bp(v)%7D%20%5C%5C%20)](#_)
-
-Itt a **likelihood függvény,** p(v|f,l) p(l|h) p(f|h) (mondjuk), vagyis az a függvény, ami megadja a ez még a priorral való szorzás után sem lesz igazi valószínűségi eloszlás, de az adat rögzítésével (márpedig az adatok rögzítettek), arányos lesz ezzel és az arányossági tényező a p(v), ami az arányossági tényező, amivel normáljuk a likelihood-prior szorzatot, és az már eloszlás.
+Itt a **likelihood függvény,** p(v|l,e) p(l|f) p(e|f) p(f|h) (mondjuk), vagyis az a függvény, megadja a generatív modellt, és ez még a priorral való szorzás után sem lesz igazi valószínűségi eloszlás, de az adat rögzítésével (márpedig az adatok rögzítettek), arányos lesz ezzel. Az arányossági tényező 1/p(v), amivel normáljuk a likelihood-prior szorzatot, és az már eloszlás lesz.
 
 (A Bayes-inferencia most "kimerítéssel" (enumerate) és "az adat feltételezésével" (condition) működik: a hónap változó marginális eloszlását számolja ki azzal a feltétellel, hogy adat = vizes, az összes eset végigszámolásával.)
 
