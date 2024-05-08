@@ -22,6 +22,8 @@ _Skaláris implikatúrnának_ nevezzük a "minden" "valahány" "egy se" ("all", 
 
 A fentiek komputációs modellezéséhez az úgy nevezett RSA elméletet használják, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford CoCoLab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata. 
 
+Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartalmaz a beszélő nyelvprodukciójára és a hallgató interpretációjára. A pragmatikus beszélő ($S_1$) kiválaszt egy szót u, hogy a legjobban jelölje egy objektumot s egy szó szerinti hallgatónak L0, aki u-t igazként értelmezi, és megtalálja azokat az objektumokat, amelyek összeegyeznek u jelentésével. A pragmatikus hallgató L1 a beszélő gondolkodásáról következtet, és ennek megfelelően értelmezi u-t, Bayes tételét használva; L1 figyelembe veszi az objektumok előzetes valószínűségét a forgatókönyvben (azaz egy objektum kiemelkedését, P(s)). A kiemelkedés és hatékonyság hozzájárulásainak formalizálásával az RSA keretrendszer információs-elméleti meghatározást nyújt a pragmatikus következtetések informativitásáról.
+
 <img src="https://github.com/mozow01/Bayes2024/blob/main/Screenshot%20from%202024-05-08%2012-40-42.png" height=300>
 
 
