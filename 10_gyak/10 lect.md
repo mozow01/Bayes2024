@@ -42,6 +42,77 @@ $$P_{L_0}(s,u)=P(s\mid u)\propto 1_{[[u]],s}\cdot P(s)$$
 
 (itt $1_{[[u]],s}$ a Kronecker-delta függvény, ami 1, ha $u$ jelentése $[[u]]=s$ és nulla, ha nem.)
 
+Nulladik lépésben, a jelenség detektálásánál, a literal és a pragmatic listener viselkesésének leírás a feladat. Összetettebb feladatban ez bonyolultabb jelenségek leírására is alkalmas.
+
+## "Vanila" RSA scalar implicature generative model:
+
+````javascript
+// possible states of the world
+var states = [0, 1, 2, 3]
+var statePrior = function() {
+  return uniformDraw(states)
+}
+
+// possible utterances
+var utterancePrior = function() {
+  return uniformDraw(['all', 'some', 'none'])
+}
+
+// cost function for utterances
+var cost = function(utterance){
+  utterance == "all" ? 1 :
+  utterance == "some" ? 1 :
+  utterance == "none" ? 1 :
+  0
+}
+
+// meaning function to interpret the utterances
+var literalMeanings = {
+  all: function(state) { return state === 3; },
+  some: function(state) { return state > 0; },
+  none: function(state) { return state === 0; }
+}
+
+// literal listener
+var literalListener = cache(function(utt) {
+  return Infer({model: function(){
+    var state = uniformDraw(states)
+    var meaning = literalMeanings[utt]
+    condition(meaning(state))
+    return state
+  }})
+})
+
+// set speaker optimality
+var alpha = 1;
+
+// pragmatic speaker
+var speaker = cache(function(state) {
+  return Infer({model: function(){
+    var utt = utterancePrior()
+    factor(alpha * (literalListener(utt).score(state) ))
+    return utt
+  }})
+})
+
+// pragmatic listener
+var pragmaticListener = cache(function(utt) {
+  return Infer({model: function(){
+    var state = statePrior()
+    observe(speaker(state),utt)
+    return state
+  }})
+})
+
+var i = 'some'
+
+display("pragmatic listener's interpretation of "+i)
+viz(pragmaticListener(i))
+display("literal listener's interpretation of "+i)
+viz(literalListener(i))
+````
+
+
 
 
 ## Winden vagy Hawkins?
