@@ -1,3 +1,10 @@
+# Hierarchikus modellek
+
+## Bayes-féle belső modell -- the "poster child": the scalar implicature
+
+
+
+
 ## Winden vagy Hawkins?
 
 <img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/winden.jpg" height=200><img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/nancy_leave_hawkins_stranger_things_netflix_ringer.jpg" height=200>
