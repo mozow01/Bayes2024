@@ -1,6 +1,10 @@
 # Hierarchikus modellek
 
-## Bayesiánus belsőmodellezés -- the "poster child": the scalar implicature
+## Bayesiánus belső modellezés
+
+_Bayesiánus modellezésnek_ nevezzük, amikor azt gondoljuk, hogy az agy egy Bayes-féle következtetést végel el valamely probléma megoldásánál. (Ehhez képest a _bayesiánus adatelemzés_ csak statisztikai tudományág, a _bayesiánus pszichofizikai elemzés_ pedig az viselkedési jelek bayesiánus adatelemzése.)
+
+
 
 
 
