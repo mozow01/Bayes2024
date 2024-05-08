@@ -1,6 +1,6 @@
 # Hierarchikus modellek
 
-## Bayes-féle belső modell -- the "poster child": the scalar implicature
+## Bayesiánus belsőmodellezés -- the "poster child": the scalar implicature
 
 
 
