@@ -34,10 +34,13 @@ Pragmatic speaker:
 
 $$P_{S_1}(u,s)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
 
+(itt $U_{S_1}(u,s)$ a utility (jutalom) függvény)
+
 Literal listener:
 
-$$P_{L_0}(s,u)=P(s\mid u)\propto \delta(u,s)\cdot P(s)$$
+$$P_{L_0}(s,u)=P(s\mid u)\propto \delta([[u]],s)\cdot P(s)$$
 
+(itt $\delta([[u]],s)$ a Kronecker-delta függvény, ami 1, ha $u$ jelentése $[[u]]=s$ és nulla, ha nem.)
 
 
 
