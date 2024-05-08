@@ -28,7 +28,7 @@ Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartal
 
 Pragmatikus listener:
 
-$$P_{L_1}(s)=P(s\mid u)\sim P(u\mid s)\cdot P(s)$$
+$$P_{L_1}(s)=P(s\mid u)\propto P(u\mid s)\cdot P(s)$$
 
 
 
