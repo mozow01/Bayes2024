@@ -16,7 +16,7 @@ Az ilyen pragmatikai problémák közé tartozik pl. a _beszédaktusok_ (speech 
 
 ### Skaláris implikatúra
 
-Skaláris implikatúrnának nevezzük a "minden" "valahány" "egy se" ("all", "some", "none") szavak használatában rejlő problémákat. Ennek komputációs modellezéséhez az úgy nevezett RSA elméletet használjuk, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford cocolab, webppl), ami a speech act elmélet egy komputációs bayesiánus változata.
+Skaláris implikatúrnának nevezzük a "minden" "valahány" "egy se" ("all", "some", "none") szavak használatában rejlő problémákat. Ennek komputációs modellezéséhez az úgy nevezett RSA elméletet használjuk, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford Cocolab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata.
 
 
 
