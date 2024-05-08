@@ -38,9 +38,9 @@ $$P_{S_1}(u,s)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
 
 Literal listener:
 
-$$P_{L_0}(s,u)=P(s\mid u)\propto 1([[u]],s)\cdot P(s)$$
+$$P_{L_0}(s,u)=P(s\mid u)\propto 1_{[[u]],s}\cdot P(s)$$
 
-(itt $1([[u]],s)$ a Kronecker-delta függvény, ami 1, ha $u$ jelentése $[[u]]=s$ és nulla, ha nem.)
+(itt $1_{[[u]],s}$ a Kronecker-delta függvény, ami 1, ha $u$ jelentése $[[u]]=s$ és nulla, ha nem.)
 
 
 
