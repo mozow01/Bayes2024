@@ -349,9 +349,30 @@ Közös házi:
 
 <img src="https://github.com/mozow01/Bayes2024/blob/main/japan.png" height=200>
 
+````javasript
+var earthquakwModel = Infer({ method: 'enumerate' }, function(){
+  var earthquake = categorical({ps:[0.1,0.9],
+                            vs: ['ex', 'non'] });
+ 
+ 
+  var radio = earthquake ? flip(0.8) : flip(0.0);
+ 
+  var alarm = radio ? flip(0.9461) : flip(0.9);
+ 
+
+     //  condition(alarm == true);
+
+ 
+       return {earthquake: earthquake, radio: radio,
+               alarm: alarm};
+});
+
+viz.marginals(earthquakwModel)
+````
+
 2.) Egy tengerparton homokos és sóderos partszakasz is van. A sirályok szívesebben időznek a sóderoson. Készítsünk generatív modellt, amelyik generálja az adatokat! Ha el kéne dönteni, hogy egy létező jelenség-e, akkor milyen két modellt ütköztetnénk?
 
-````
+````javascript
 var model = function() {
   
   var i = categorical({ps:[0.5,0.5], 
