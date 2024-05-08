@@ -26,9 +26,17 @@ Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartal
 
 <img src="https://github.com/mozow01/Bayes2024/blob/main/Screenshot%20from%202024-05-08%2012-40-42.png" height=300>
 
-Pragmatikus listener:
+Pragmatic listener:
 
 $$P_{L_1}(s)=P(s\mid u)\propto P(u\mid s)\cdot P(s)$$
+
+Pragmatic speaker: 
+
+$$P_{S_1}(u)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
+
+Literal listener:
+
+$$P_{L_0}(s)=P(s\mid u)\propto [[u]]_s\cdot P(s)$$
 
 
 
