@@ -22,7 +22,7 @@ _Skaláris implikatúrnának_ nevezzük a "minden" "valahány" "egy se" ("all", 
 
 A fentiek komputációs modellezéséhez az úgy nevezett RSA elméletet használják, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford CoCoLab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata. 
 
-Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartalmaz a beszélő nyelvprodukciójára és a hallgató interpretációjára. A **pragmatikus beszélő (pragmatic speaker)** ($S_1$) kiválaszt egy szót $u$, hogy kommunikációs hatékonyság szemponthából a legjobban tudjon referálni egy $s$ (state) objektumra a **szó szerinti hallgatónak (literal listener)** $L_0$. Ő $u$-t igazként értelmezi, és megtalálja azokat az objektumokat, amelyek megfelelnek $u$ jelentésnek. A **pragmatikus hallgató (pragmatic listener)** ($L_1$) a beszélő racionális gondolatairól következtet, és ennek megfelelően értelmezi $u$-t a Bayes-tételt használva. $L_11$ figyelembe veszi az objektumok prior valószínűségét ($P(s)$). Az RSA keretrendszer információ-elméleti módon írja le a racionális beszédaktus pragmatikájának jelenségét.
+Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartalmaz a beszélő nyelvprodukciójára és a hallgató interpretációjára. A **pragmatikus beszélő (pragmatic speaker)** ($S_1$) kiválaszt egy szót $u$, hogy kommunikációs hatékonyság szemponthából a legjobban tudjon referálni egy $s$ (state) objektumra a **szó szerinti hallgatónak (literal listener)** $L_0$. Ő $u$-t igazként értelmezi, megtalálja azokat az objektumokat, amelyek megfelelnek $u$ jelentésnek és ezekre egy (egyszerű) eloszlást inferál. A **pragmatikus hallgató (pragmatic listener)** ($L_1$) a beszélő racionális gondolatairól következtet, és ennek megfelelően értelmezi $u$-t a Bayes-tételt használva. $L_11$ figyelembe veszi az objektumok prior valószínűségét ($P(s)$). Az RSA keretrendszer információ-elméleti módon írja le a racionális beszédaktus pragmatikájának jelenségét.
 
 <img src="https://github.com/mozow01/Bayes2024/blob/main/Screenshot%20from%202024-05-08%2012-40-42.png" height=300>
 
@@ -36,7 +36,7 @@ $$P_{S_1}(u)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
 
 Literal listener:
 
-$$P_{L_0}(s)=P(s\mid u)\propto [[u]]_s\cdot P(s)$$
+$$P_{L_0}(s)=P(s\mid u)\propto \delta(u,s)\cdot P(s)$$
 
 
 
