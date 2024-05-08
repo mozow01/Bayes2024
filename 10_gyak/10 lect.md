@@ -4,7 +4,9 @@
 
 _Bayesiánus modellezésnek_ (vagy belső modellezésnek) nevezzük, amikor azt gondoljuk, hogy az agy egy Bayes-féle következtetést végez el valamely probléma megoldásánál és ezt a modellt építjük fel. (Ehhez képest a _bayesiánus adatelemzés_ csak statisztikai tudományág, a _bayesiánus pszichofizikai elemzés_ pedig az viselkedési jelek bayesiánus adatelemzése.)
 
-Az ilyen komputációs belső modellek egyik mintapéldája egy nyelvi (pszicholingviszikai vagy szociális kommunikációs kogníciós) jelenség variációit magában foglaló _implikatúra_ (implicature) jelensége. Társalgási implikatúra például a következő párbeszéd:
+## Implikatúrák
+
+Az ilyen komputációs belső modellek egyik mintapéldája egy nyelvi (pszicholingviszikai vagy szociális kommunikációs kogníciós) jelenség variációit magában foglaló _implikatúra_ (implicature) jelensége. _Társalgási implikatúra_ például a következő párbeszéd:
 
 Pisti: "Jössz Géza bulijára?"
 
@@ -12,13 +14,15 @@ Anna: "Dolgoznom kell."
 
 Ez egy nagyon furcsa kommunikációs jelenség, amely a _pragmatika_ területére tartozik, amikor nem elég a szintaxisra (kérdés-válasz) és a szemantikára (szótári jelentésre) gondolnunk az értelmezéshez. 
 
-Az ilyen pragmatikai problémák közé tartozik pl. a _beszédaktusok_ (speech act) problémája is, amelyet Ludwig Wittgenstein, John Austin és John Searl nevéhez köthető (Searl nagyon fontos filozófus az AI kutatásában is!).   
+Az ilyen pragmatikai problémák közé tartozik pl. a _beszédaktusok_ (speech act) problémája is, amelyet Ludwig Wittgenstein, John Austin és John Searl nevéhez köthető (Searl nagyon fontos filozófus az AI kutatásában is!). 
 
-### Skaláris implikatúra
+_Skaláris implikatúrnának_ nevezzük a "minden" "valahány" "egy se" ("all", "some", "none") szavak használatában rejlő problémákat.
 
-Skaláris implikatúrnának nevezzük a "minden" "valahány" "egy se" ("all", "some", "none") szavak használatában rejlő problémákat. Ennek komputációs modellezéséhez az úgy nevezett RSA elméletet használjuk, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford Cocolab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata.
+## RSA modellek
 
+A fentiek komputációs modellezéséhez az úgy nevezett RSA elméletet használják, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford CoCoLab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata. 
 
+<img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/winden.jpg" height=200>
 
 
 
