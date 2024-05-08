@@ -2,7 +2,15 @@
 
 ## Bayesiánus belső modellezés
 
-_Bayesiánus modellezésnek_ nevezzük, amikor azt gondoljuk, hogy az agy egy Bayes-féle következtetést végel el valamely probléma megoldásánál. (Ehhez képest a _bayesiánus adatelemzés_ csak statisztikai tudományág, a _bayesiánus pszichofizikai elemzés_ pedig az viselkedési jelek bayesiánus adatelemzése.)
+_Bayesiánus modellezésnek_ (vagy belső modellezésnek) nevezzük, amikor azt gondoljuk, hogy az agy egy Bayes-féle következtetést végez el valamely probléma megoldásánál és ezt a modellt építjük fel. (Ehhez képest a _bayesiánus adatelemzés_ csak statisztikai tudományág, a _bayesiánus pszichofizikai elemzés_ pedig az viselkedési jelek bayesiánus adatelemzése.)
+
+Az ilyen komputációs belső modellek egyik mintapéldája egy nyelvi (pszicholingviszikai vagy szociális kommunikációs kogníciós) jelenség variációit magában foglaló _implikatúra_ (implicature) jelensége. Társalgási implikatúra például a következő párbeszéd:
+
+Pisti: "Jössz Géza bulijára?"
+Anna: "Dolgoznom kell!"
+
+
+
 
 
 
