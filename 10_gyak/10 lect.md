@@ -22,7 +22,7 @@ _Skaláris implikatúrnának_ nevezzük a "minden" "valahány" "egy se" ("all", 
 
 A fentiek komputációs modellezéséhez az úgy nevezett RSA elméletet használják, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford CoCoLab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata. 
 
-<img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/winden.jpg" height=200>
+<img src="https://github.com/mozow01/Bayes2024/blob/main/Screenshot%20from%202024-05-08%2012-40-42.png" height=300>
 
 
 
