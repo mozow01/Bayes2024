@@ -7,9 +7,16 @@ _Bayesiánus modellezésnek_ (vagy belső modellezésnek) nevezzük, amikor azt 
 Az ilyen komputációs belső modellek egyik mintapéldája egy nyelvi (pszicholingviszikai vagy szociális kommunikációs kogníciós) jelenség variációit magában foglaló _implikatúra_ (implicature) jelensége. Társalgási implikatúra például a következő párbeszéd:
 
 Pisti: "Jössz Géza bulijára?"
-Anna: "Dolgoznom kell!"
 
+Anna: "Dolgoznom kell."
 
+Ez egy nagyon furcsa kommunikációs jelenség, amely a _pragmatika_ területére tartozik, amikor nem elég a szintaxisra (kérdés-válasz) és a szemantikára (szótári jelentésre) gondolnunk az értelmezéshez. 
+
+Az ilyen pragmatikai problémák közé tartozik pl. a _beszédaktusok_ (speech act) problémája is, amelyet Ludwig Wittgenstein, John Austin és John Searl nevéhez köthető (Searl nagyon fontos filozófus az AI kutatásában is!).   
+
+### Skaláris implikatúra
+
+Skaláris implikatúrnának nevezzük a "minden" "valahány" "egy se" ("all", "some", "none") szavak használatában rejlő problémákat. Ennek komputációs modellezéséhez az úgy nevezett RSA elméletet használjuk, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford cocolab, webppl), ami a speech act elmélet egy komputációs bayesiánus változata.
 
 
 
