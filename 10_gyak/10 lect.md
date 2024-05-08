@@ -44,7 +44,44 @@ $$P_{L_0}(s,u)=P(s\mid u)\propto 1_{[[u]],s}\cdot P(s)$$
 
 Nulladik lépésben, a jelenség detektálásánál, a literal és a pragmatic listener viselkesésének leírás a feladat. Összetettebb feladatban ez bonyolultabb jelenségek leírására is alkalmas.
 
-## "Vanila" RSA scalar implicature generative model:
+## A utility függvényről
+
+Az úgy nevezett agent-action elméletben az ágens egy action-nel reagál a világállapotra, a state-re. Az állapottól függő jutalomfüggvény dönt arról, hogy milyen tevékenységet fog végezni.
+
+````javascript
+// define possible actions
+var actions = ['a1', 'a2', 'a3'];
+
+// define some utilities for the actions
+var utility = function(action){
+  var table = {
+    a1: -1,
+    a2: 6,
+    a3: 8
+  };
+  return table[action];
+};
+
+// define actor optimality
+var alpha = 1
+
+// define a rational agent who chooses actions
+// according to their expected utility
+var agent = Infer({ model: function(){
+    var action = uniformDraw(actions);
+    factor(alpha * utility(action));
+    return action;
+}});
+
+print("the probability that an agent will take various actions:")
+viz(agent);
+````
+
+Erről szól például az a döntési eljárás, amit korábban a "melyik kajáldába menjek, ha pizzát akarok enni" fantázianév alatt tanultunk.
+
+Jelen esetben a utility függvényt információeleméleti módon definiáljuk. A meglepettség függvényt minimalizáljuk: [https://www.problang.org/chapters/app-02-utilities.html] Ehhez pl. a Kullback--Leibler-divergencia a megfelelő mérőszám. [https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence]
+
+## "Vanilla" RSA scalar implicature generative model
 
 ````javascript
 // possible states of the world
@@ -112,6 +149,50 @@ display("literal listener's interpretation of "+i)
 viz(literalListener(i))
 ````
 
+## Kiértékelés
+
+Az adatokkal való ütközettést is bayesiánus módon csináljuk, de ez már adatelemzés.
+
+````javascript
+var data = [{k : '1'}, 
+            {k : '1'}, {k : '2'}, {k : '2'}
+           ]
+
+var HierarchicalModel = Infer({method: 'rejection', samples: 20}, 
+                       function(){
+ 
+var model  = categorical({ps:[0.5,0.5], vs: ['pragmatic', 'literal'] }); 
+  
+var pragmatic = dirichlet({alpha: Vector([0.44, 0.44, 0.11])});
+  
+    var x1 = (pragmatic.data)[0];
+    var x2 = (pragmatic.data)[1];
+    var x3 = (pragmatic.data)[2]; 
+
+var listener = dirichlet({alpha: Vector([0.33,0.33,0.33])});
+  
+    var y1 = (listener.data)[0];
+    var y2 = (listener.data)[1];
+    var y3 = (listener.data)[2]; 
+  
+  map(function(d){observe(Categorical({ps:[x1,x2,x3], vs:['1', '2', '3']}), d.k)},
+      data);
+  
+  map(function(d){observe(Categorical({ps:[y1,y2,y3], vs:['1', '2', '3']}), d.k)},
+      data);  
+  
+  var z = categorical({ps:[x1,x2,x3], vs:['1', '2', '3']})
+  
+  var w = categorical({ps:[y1,y2,y3], vs:['1', '2', '3']})
+  
+  return {pragmatic: z, 
+          literal: w};
+});
+  
+
+viz.marginals(HierarchicalModel)
+
+````
 
 
 
