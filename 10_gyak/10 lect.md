@@ -28,15 +28,15 @@ Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartal
 
 Pragmatic listener:
 
-$$P_{L_1}(s)=P(s\mid u)\propto P(u\mid s)\cdot P(s)$$
+$$P_{L_1}(s,u)=P(s\mid u)\propto P(u\mid s)\cdot P(s)$$
 
 Pragmatic speaker: 
 
-$$P_{S_1}(u)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
+$$P_{S_1}(u,s)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
 
 Literal listener:
 
-$$P_{L_0}(s)=P(s\mid u)\propto \delta(u,s)\cdot P(s)$$
+$$P_{L_0}(s,u)=P(s\mid u)\propto \delta(u,s)\cdot P(s)$$
 
 
 
