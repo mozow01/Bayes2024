@@ -79,7 +79,7 @@ print("the probability that an agent will take various actions:")
 viz(agent);
 ````
 
-Erről szól például az a döntési eljárás, amit korábban a "melyik kajáldába menjek, ha pizzát akarok enni" fantázianév alatt tanultunk.
+Erről szól például az a döntési eljárás, amit korábban a "melyik kajáldába menjek, ha pizzát akarok enni" fantázianév alatt tanultunk (4. gyak matlab).
 
 Jelen esetben a utility függvényt információeleméleti módon definiáljuk. A meglepettség függvényt minimalizáljuk: [https://www.problang.org/chapters/app-02-utilities.html] Ehhez pl. a Kullback--Leibler-divergencia a megfelelő mérőszám. [https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence]
 
