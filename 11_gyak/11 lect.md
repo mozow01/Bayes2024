@@ -12,4 +12,8 @@ Két modell versengésének eredményét úgy mérhetjük, ha megnézzük, hogy 
 
 $$BF_{12}=\dfrac{\Pr(D\mid m=1)}{\Pr(D\mid m=2)}$$
 
+Ha azt az értelmezés vesszük, hogy a $(\vartheta, X, m)$ jointtal van dolgunk, ahol $\vartheta$ a látens paraméter, $X$ a megfigyelt változó, $m$ a modell hiperparaméter, akkor a fenti mennyiségek:
 
+$$\Pr(D\mid m=i)=\sim\limits_{\vartheta}\Pr(D,\vartheta\mid m=i)=\sim\limits_{\vartheta}\Pr(D\mid\vartheta\mid m=i)\Pr(\vartheta\mid m=i)$$
+
+az prediktív priorokba való behelyettesíése az adatoknak. A BF számítás úgy nevezett _ex ante_ ("az előzetesből") kiszámított mennyiség, azaz a posterior kiszámítása előtti mennyiség.
