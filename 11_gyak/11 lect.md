@@ -98,7 +98,13 @@ $$I(A\cdot B)=f(\Pr(A\cdot B))=f(\Pr(A))+f(\Pr(B))=I(A)+I(B)$
 
 összefüggést, akkor f-nek a logaritmussal arányosnak kell lennie, mert a logaritmus csinál összegből szorzatot (a "csak akkor" rész is igazolható). Tehát:
 
-$$I(x)=-\log_2 p(x)=\log_2\frac{1}{p(x)}$$
+$$I(X=x)=-\log_2 \Pr(X=x)=\log_2\frac{1}{\Pr(X=x)}$$
+
+Ennek várható értéke, azaz az eloszlás általgos információtartalma az entrópia
+
+$$H(X)=-\sum\limits_x \Pr(X=x)\cdot \log \Pr(X=x)$$
+
+
 
 
 
