@@ -110,6 +110,4 @@ $$D_\text{KL}(P \parallel Q) = -\sum\limits_x P(x)\log\left(\frac{Q(x) }{P(x)}\r
 
 $$=-\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-H(P)=H(P,Q)-H(P)$$
 
-
-
-
+Bayesiánus nyelven kifejezve D_\text{KL}(P \parallel Q) az a mérőszám, amely azt mutatja meg, hogy mennyi információ keletkezik abból, hogy a prior Q-t frissítve áttérünk a poszterior P-re. Más szóval ez az információmennyiség mutatja, mennyi információ veszett el, amikor a Q-t használtuk a P korábbi közelítésére.
