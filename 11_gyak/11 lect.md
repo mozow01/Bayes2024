@@ -20,7 +20,7 @@ az adatoknak a "prediktív priorokba" való behelyettesíése (emlékezzünk: a 
 
 A generatív modellből a látens m-et inferálhatjuk a D adat mellett. Ez a szokásos út, de akkor hogyan lesz ebből BF? A Bayes-faktort a generatív modell programjának lefutása utáni adatokból is kiszámíhtahjuk, ha felhasználjuk a Bayes-tételt:
 
-$$\Pr(m_i\mid D)=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\Pr(D)}\;\left(=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\sum\limits_{m_i}\Pr(D \mid m_i)\Pr(m_i)}\right$$
+$$\Pr(m_i\mid D)=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\Pr(D)}\;\left(=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\sum\limits_{m_i}\Pr(D \mid m_i)\Pr(m_i)}\right)$$
 
 Innen, a $\Pr(D)$-t kiejtve:
 
