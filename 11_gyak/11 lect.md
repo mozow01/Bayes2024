@@ -92,18 +92,21 @@ azaz az egyenletes eloszlás még mindig jobban magyaráz, de már csak **anekdo
 
 ## Kullback--Leiber-divergencia
 
-Az információt intuitíven mint a "meglepettség" (surprisal, infonrációtartam) mértékét értelmezzük. Egy esetmény információtartalma annál nagyobb, minél kevesebbszer forul elő. Ha még azt is feltesszük, hogy ez a mennyiség a p(x) vsz-eken folytonosan operáljon egy f függvény által és teljesítse független A és B események esetén az
+Az **információ** intuitív értelmezése a "meglepettség" (surprisal, információtartam). Egy esetmény információtartalma annál nagyobb, minél kevesebbszer forul elő. Ha még azt is feltesszük, hogy ez a mennyiség a p(x) vsz-eken folytonosan operáljon egy f függvény által és teljesítse független A és B események esetén az
 
-$$I(A\cdot B)=f(\Pr(A\cdot B))=f(\Pr(A))+f(\Pr(B))=I(A)+I(B)$ 
+$$I(A\cdot B)=f(\Pr(A\cdot B))=f(\Pr(A))+f(\Pr(B))=I(A)+I(B)$$
 
 összefüggést, akkor f-nek a logaritmussal arányosnak kell lennie, mert a logaritmus csinál összegből szorzatot (a "csak akkor" rész is igazolható). Tehát:
 
 $$I(X=x)=-\log_2 \Pr(X=x)=\log_2\frac{1}{\Pr(X=x)}$$
 
-Ennek várható értéke, azaz az eloszlás általgos információtartalma az entrópia
+Ennek várható értéke, azaz az eloszlás átlagos információtartalma az **entrópia**
 
 $$H(X)=-\sum\limits_x \Pr(X=x)\cdot \log \Pr(X=x)$$
 
+Hogy az átlagos információtartalom az egyik eloszlásról a másikra áttérve hogyan változik, azt a relatív entrópia vagy más néven a Kullback--Leiber-divergencia határozza meg:
+
+$$D_\text{KL}(P \parallel Q) = -\sum\limits_x P(x)\log\left(\frac{\ Q(x)\ }{P(x)}\right)=-\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-\sum\limits_x P(x)\log\left(\frac{1 }{P(x)}\right)= -\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-H(P)$$
 
 
 
