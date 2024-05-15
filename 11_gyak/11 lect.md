@@ -17,3 +17,7 @@ Ha azt az értelmezés vesszük, hogy a $(\vartheta, X, m)$ jointtal van dolgunk
 $$\Pr(D\mid m_i)=\sum\limits_{\vartheta}\Pr(D,\vartheta\mid m_i)=\sum\limits_{\vartheta}\Pr(D\mid\vartheta,m_i)\Pr(\vartheta\mid m_i)$$
 
 az adatoknak a "prediktív priorokba" való behelyettesíése (emlékezzünk: a prior eloszlás a látens értékeit adja vissza, a prediktív prior a megfigyelt értékek eloszlását adda vissza az adott látens eloszlás mellett). A BF számítás úgy nevezett _ex ante_ ("az előzetesből") kiszámított mennyiség, azaz a posterior kiszámítása előtti mennyiség.
+
+A generatív modellből a látens m-et inferálhatjuk a D adat mellett. Ez a szokásos út, de akkor hogyan lesz ebből BF? A Bayes-faktort a generatív modell programjának lefutása utáni adatokból is kiszámíhtahjuk, ha felhasználjuk a Bayes-tételt:
+
+$$\Pr(m_i\mid D)=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\Pr(D)}=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\sum\limits_{m_i}\Pr(D \mid m_i)\Pr(m_i)}$$
