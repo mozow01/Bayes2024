@@ -40,8 +40,7 @@ Az alábbi táblázat (az egyik olyan amiben) a BF értékek szerint látható, 
 |10<sup>3/2</sup> < ... < 10<sup>2</sup>=100 | Nagyon erős|
 |10<sup>2</sup> < ... | Döntő |
 
-
-### Külvárosi és menő gimi
+### Egy erős döntési helyzet
 
 * Egy 24 fős átlagos gimnáziumi osztályban a diákok közül 6 válaszolta (25%), hogy nem volt gondja a matekkal. Egy elitgimnáziumban ugyanez a szám 31-ből 17. Két binomiális eloszlást szimuláló modellel élünk. m<sub>1</sub> szerint a prior 0.25 várható értékű (E(X)=a/(a+b)) dogmatikus beta eloszlás (beta(30,90), kis szórás), amellyel azt feltételezzük, hogy tényleg az átlagos gimnázium adja az átlagot, m<sub>2</sub> pedig egyenletes és bármi kijöhetett volna, mert a gimnáziumok között igen nagy eltérések is lehetnek. Melyik modell magyarázza jobban a megfigyelt 7/31 értéket?
 
@@ -72,8 +71,6 @@ var output = Infer({model: model, samples: 10000, method: 'MCMC'});
 viz.marginals(output);
 ````
 
-### Egy erős döntési helyzet
-
 A konkrét példába, a program lefutását követően, az adatokból: P(17|M<sub>1</sub>), P(17|M<sub>2</sub>) kiszámítása után: BF=P(17|m<sub>2</sub>)/P(17|m<sub>1</sub>)=
 
 BF = 15,47 > 10
@@ -95,6 +92,13 @@ azaz az egyenletes eloszlás még mindig jobban magyaráz, de már csak **anekdo
 
 ## Kullback--Leiber-divergencia
 
-Az információt intuitíven mint a "meglepettség" (surprisal) mértékét értelmezzük. Egy esetmény információtartalma annál nagyobb, minél kevesebbszer forul elő. 
+Az információt intuitíven mint a "meglepettség" (surprisal, infonrációtartam) mértékét értelmezzük. Egy esetmény információtartalma annál nagyobb, minél kevesebbszer forul elő. Ha még azt is feltesszük, hogy ez a mennyiség a p(x) vsz-eken folytonosan operáljon egy f függvény által és teljesítse független A és B események esetén az
+
+$$I(A\cdot B)=f(\Pr(A\cdot B))=f(\Pr(A))+f(\Pr(B))=I(A)+I(B)$ 
+
+összefüggést, akkor f-nek a logaritmussal arányosnak kell lennie, mert a logaritmus csinál összegből szorzatot (a "csak akkor" rész is igazolható). Tehát:
+
+$$I(x)=-\log_2 p(x)=\log_2\frac{1}{p(x)}$$
+
 
 
