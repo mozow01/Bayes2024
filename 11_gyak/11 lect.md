@@ -72,19 +72,17 @@ var output = Infer({model: model, samples: 10000, method: 'MCMC'});
 viz.marginals(output);
 ````
 
-
-
-## Egy erős döntési helyzet
+### Egy erős döntési helyzet
 
 A konkrét példába, a program lefutását követően, az adatokból: P(17|M<sub>1</sub>), P(17|M<sub>2</sub>) kiszámítása után: BF=P(17|m<sub>2</sub>)/P(17|m<sub>1</sub>)=
 
-K = 15,47 > 10
+BF = 15,47 > 10
 
 azaz a próba **erősen** m<sub>2</sub>-t részesíti előnyben és az m<sub>1</sub> erősen elvetendő. Tehát az elitgimnáziumi érték nagyon nem vehető olyannak, ami egy véletlenül adódó átlagos gimnáziumi osztály eredménye lehetne.
 
 <img src="https://github.com/mozow01/cog_compsci/blob/main/orak/files/ketevi_1.png" width=600>
 
-## Anekdotikus döntési helyzet
+### Anekdotikus döntési helyzet
 
 * A fenti kérdés az absztrakt matematikai jelölések megértésére vonatkozott. Ugyanebben a mérésben a 24 átlagos gimnazista közül 11 mondta, hogy a "hagyományos" matekkal nem volt gondja. A 31 elitgimnazista között ez a szám 19. Mennyire tartható a m<sub>1</sub> (mutatis mutandis)?
 
@@ -93,8 +91,6 @@ Ebben az esetben legyen m<sub>1</sub> priorja beta(30,55), ami a 11/24 várható
 P(19|m<sub>2</sub>)/P(19|m<sub>1</sub>) = 4.32
 
 azaz az egyenletes eloszlás még mindig jobban magyaráz, de már csak **anekdotikusan**, a 3.16 <BF < 6. Különbség tehát kimutatható, de már messze nem olyan hihetően, mint az előbb.
-
-
 
 
 ## Kullback--Leiber-divergencia
