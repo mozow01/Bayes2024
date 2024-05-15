@@ -28,7 +28,7 @@ $$\frac{\Pr(m_1\mid D)}{\Pr(m_1\mid D)}=\underset{BF_{12}}{\underbrace{\frac{\Pr
 
 Tehát ha a modellek priorjait 50-50%-ra állítjuk be, akkor a modellek poszterior eloszlása (arányként kifejezve), a BF-et adja.
 
-Az alábbi táblázat (az egyik olyan amiben) a K értékek szerint látható, hogy m<sub>1</sub> mennyire magyarázza a jelenséget a megfigyelt változó ismeretében, mint m<sub>2</sub>.
+Az alábbi táblázat (az egyik olyan amiben) a BF értékek szerint látható, hogy m<sub>1</sub> mennyire magyarázza a jelenséget a megfigyelt változó ismeretében, mint m<sub>2</sub>.
 
 |K|Az m<sub>1</sub> melletti bizonyíték erőssége|
 |---|---|
