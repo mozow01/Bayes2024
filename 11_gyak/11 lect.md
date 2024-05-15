@@ -24,6 +24,6 @@ $$\Pr(m_i\mid D)=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\Pr(D)}\;\left(=\frac{\Pr(D\mid m
 
 Innen, a $\Pr(D)$-t kiejtve:
 
-$$\frac{\Pr(m_1\mid D)}{\Pr(m_1\mid D)}=\underset{\text{BF_{12}}}{\underbrace{\frac{\Pr(D\mid m_1)}{\Pr(D\mid m_2)}}}\frac{\Pr(m_1)}{\Pr(m_2)}$$
+$$\frac{\Pr(m_1\mid D)}{\Pr(m_1\mid D)}=\underset{BF_{12}}{\underbrace{\frac{\Pr(D\mid m_1)}{\Pr(D\mid m_2)}}}\frac{\Pr(m_1)}{\Pr(m_2)}$$
 
 Tehát ha a modellek priorjait 50-50%-ra állítjuk be, akkor a modellek poszterior eloszlása (arányként kifejezve), a BF-et adja.
