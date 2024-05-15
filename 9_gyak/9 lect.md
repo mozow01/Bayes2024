@@ -391,7 +391,11 @@ var output = Infer({model: model, samples: 1000, method: 'MCMC'});
 viz.marginals(output);
 ````
 
-Földrengéses feladat:
+## Földrengéses feladat:
+
+<img src="https://github.com/mozow01/Bayes2024/blob/main/earth_1.png" height=300>
+
+
 
 ````javascript
 print('The Earthquake Model')
