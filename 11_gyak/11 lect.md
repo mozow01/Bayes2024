@@ -22,7 +22,7 @@ A generatív modellből a látens m-et inferálhatjuk a D adat mellett. Ez a szo
 
 $$\Pr(m_i\mid D)=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\Pr(D)}\quad\left(=\frac{\Pr(D\mid m_i)\Pr(m_i)}{\sum\limits_{m_i}\Pr(D \mid m_i)\Pr(m_i)}\right)$$
 
-Innen, a $\Pr(D)$-t kiejtve:
+Innen, a $\Pr(D)$ közös normálási faktort kiejtve:
 
 $$\frac{\Pr(m_1\mid D)}{\Pr(m_1\mid D)}=\underset{BF_{12}}{\underbrace{\frac{\Pr(D\mid m_1)}{\Pr(D\mid m_2)}}}\frac{\Pr(m_1)}{\Pr(m_2)}$$
 
