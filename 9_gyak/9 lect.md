@@ -391,3 +391,106 @@ var output = Infer({model: model, samples: 1000, method: 'MCMC'});
 viz.marginals(output);
 ````
 
+Földrengéses feladat:
+
+````javascript
+print('The Earthquake Model')
+var earthquakeModel = function() {
+  var earthquake = flip(0.1);
+  var Alarm = earthquake ? flip(0.4) : flip(0.05);
+  var Radio = earthquake ? flip(0.9) : flip(0.01);
+  return {
+    Earthquake: earthquake,
+    Radio: Radio,
+    Alarm: Alarm
+  };
+};
+var distribution = Infer({method: 'enumerate'}, earthquakeModel);
+viz.table(distribution);
+print('')
+viz.auto(distribution);
+viz.marginals(distribution);
+print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
+print('Conditional Independence Analysis')
+print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
+print('Radio-Alarm:')
+var distribution = Infer({method: 'enumerate'}, earthquakeModel);
+var probR = Infer({method: 'enumerate'}, function() {
+  var outcome = earthquakeModel();
+  return {Radio: outcome.Radio};
+});
+viz.table(probR)
+var probR = Infer({method: 'enumerate'}, function() {
+  var outcome = earthquakeModel();
+  return outcome.Radio
+});
+var probA = Infer({method: 'enumerate'}, function() {
+  var outcome = earthquakeModel();
+   return {Alarm: outcome.Alarm};
+});
+viz.table(probA)
+var probA = Infer({method: 'enumerate'}, function() {
+  var outcome = earthquakeModel();
+   return outcome.Alarm
+});
+var jointRA = Infer({method: 'enumerate'}, function() {
+  var outcome = earthquakeModel();
+  return (outcome.Radio && outcome.Alarm) ? true : false;
+});
+var jointRA = Infer({method: 'enumerate'}, function() {
+  var outcome = earthquakeModel();
+  return {JointRA: outcome.Radio && outcome.Alarm}
+});
+viz.table(jointRA)
+print('')
+print('P(R=1) = ' + expectation(probR).toFixed(6));
+print('P(A=1) = ' + expectation(probA).toFixed(6));
+print('P(R=1, A=1) = ' + expectation(probR) * expectation(probA).toFixed(6));
+print('JointRA = ' + 0.03645); //P(R=1, A=1)|P(E=1) + P(R=1, A=1)|P(E=0)
+var probjointRA = 0.03645;
+var probRadio = 0.099;
+var probAlarm = 0.085;
+var productOfMarginals = probRadio * probAlarm;
+print('Checking if P(JointRA) = P(R=1) * P(A=1): ' + probjointRA + ' = ' + probRadio + ' * ' + probAlarm + ' ≠ ' + productOfMarginals.toFixed(6));
+var conditionalIndependence = (probjointRA === productOfMarginals) ? "Yes" : "No";
+print('Conditional Independence between Radio and Alarm? ' + conditionalIndependence);
+print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
+print('Earthquake-Radio-Alarm:');
+var earthquakeModel = function() {
+  var earthquake = flip(0.1);
+  var radio = flip(earthquake ? 0.9 : 0.01);
+  var alarm = flip(earthquake ? 0.4 : 0.05);
+  return {E: earthquake, R: radio, A: alarm};
+};
+var distribution = Infer({method: 'enumerate'}, earthquakeModel);
+var pE1 = expectation(distribution, function(s) { return s.E ? 1 : 0; });
+var pE1R1A1 = expectation(distribution, function(s) { return s.E && s.R && s.A ? 1 : 0; }) / pE1;
+var pE1R1A0 = expectation(distribution, function(s) { return s.E && s.R && !s.A ? 1 : 0; }) / pE1;
+var pE1R0A1 = expectation(distribution, function(s) { return s.E && !s.R && s.A ? 1 : 0; }) / pE1;
+var results =  [
+    {
+        Scenario: 'P(E=1, R=1, A=1)',
+        Probability: pE1R1A1.toFixed(2)
+    },
+    {
+        Scenario: 'P(E=1, R=1, A=0)',
+        Probability: (pE1R1A1 + pE1R1A0).toFixed(2)
+    },
+    {
+        Scenario: 'P(E=1, R=0, A=1)',
+        Probability: (pE1R1A1 + pE1R0A1).toFixed(2) 
+    }
+];
+viz.bar(results);  
+print('')
+print('P(E=1, R=1, A=1) / P(E=1): ' + (expectation(distribution, function(s) { return s.E && s.R && s.A ? 1 : 0; }) / expectation(distribution, function(s) { return s.E ? 1 : 0; })).toFixed(2));
+print('P(E=1, R=1, A=0) / P(E=1): ' + (expectation(distribution, function(s) { return s.E && s.R ? 1 : 0; }) / expectation(distribution, function(s) { return s.E ? 1 : 0; })).toFixed(2));
+print('P(E=1, R=0, A=1) / P(E=1): ' + (expectation(distribution, function(s) { return s.E && s.A ? 1 : 0; }) / expectation(distribution, function(s) { return s.E ? 1 : 0; })).toFixed(2));
+var probR = (expectation(distribution, function(s) { return s.E && s.R ? 1 : 0; }) / expectation(distribution, function(s) { return s.E ? 1 : 0; })).toFixed(2);
+var probA = (expectation(distribution, function(s) { return s.E && s.A ? 1 : 0; }) / expectation(distribution, function(s) { return s.E ? 1 : 0; })).toFixed(2);
+var probJointERA = (expectation(distribution, function(s) { return s.E && s.R && s.A ? 1 : 0; }) / expectation(distribution, function(s) { return s.E ? 1 : 0; })).toFixed(2);
+var productOfMarginals = probR * probA;
+print('Checking if P(JointERA) = P(R=1) * P(A=1): ' + probJointERA + ' = ' + probR + ' * ' + probA + ' = ' + productOfMarginals.toFixed(2));
+var conditionalIndependence = probJointERA === productOfMarginals.toFixed(2) ? "Yes" : "No";
+print('Conditional Independence between Earthquake Radio and Alarm? ' + conditionalIndependence);
+````
