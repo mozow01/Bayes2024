@@ -106,7 +106,8 @@ $$H(X)=-\sum\limits_x \Pr(X=x)\cdot \log \Pr(X=x)$$
 
 Hogy az átlagos információtartalom az egyik eloszlásról a másikra áttérve hogyan változik, azt a relatív entrópia vagy más néven a Kullback--Leiber-divergencia határozza meg:
 
-$$D_\text{KL}(P \parallel Q) = -\sum\limits_x P(x)\log\left(\frac{\ Q(x)\ }{P(x)}\right)=-\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-\sum\limits_x P(x)\log\left(\frac{1 }{P(x)}\right)= -\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-H(P)$$
+$$D_\text{KL}(P \parallel Q) = -\sum\limits_x P(x)\log\left(\frac{\ Q(x)\ }{P(x)}\right)=-\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-\sum\limits_x P(x)\log\left(\frac{1 }{P(x)}\right)=$$
+ $$=-\sum\limits_x P(x) \log\left(\frac{Q(x)}{P(x)}\right)-H(P)$$
 
 
 
