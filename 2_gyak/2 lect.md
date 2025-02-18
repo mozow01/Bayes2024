@@ -26,6 +26,15 @@ var add = function(a, b) {
 print(add(3, 4)); // 7
 ```
 
+```javascript
+var foo = function(x) {
+  var baz = x === 0 ? [] : [foo(x-1),x];
+  return baz;
+}
+
+foo(3);
+```
+
 ---
 
 ## Pénzfeldobás különböző kiírási módokkal
