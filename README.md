@@ -49,6 +49,6 @@ http://9.660.scripts.mit.edu/chapters/01-webpplBasics.html
 
 https://probmods.github.io/webppl-viz/
 
-## Coq oldalal
+## Coq oldal
 
 https://coq.inria.fr/
