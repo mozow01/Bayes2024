@@ -1,11 +1,15 @@
 # WebPPL Bevezető
 
-WebPPL egy probabilisztikus programozási nyelv, amely lehetővé teszi a valószínűségi modellezést és a statisztikai következtetést. Az alapvető szintaxis hasonló a JavaScript-hez, de beépített probabilisztikus függvényekkel rendelkezik.
+WebPPL egy funkcionális probabilisztikus programozási nyelv. Valószínűségi modellezést és a statisztikai következtetést végez, furcsasága, hogy funkcionális programozási nyelv, azaz függvényeket definiálunk benne és nincsenek állapotjelzők. Az alapvető szintaxis hasonló a JavaScript-hez (a JS kulcsszavak nagy része nem működik!) de beépített probabilisztikus függvényekkel (kvázi-random-változókkal) dolgozik.
+
+http://webppl.org/
+
+https://webppl.readthedocs.io/en/master/
 
 ### **Változók és függvények WebPPL-ben**
 
-- **`var`**: Ez a kulcsszó változók deklarálására szolgál. WebPPL-ben a változók értéke lehet determinisztikus vagy valószínűségi.
-- **`function`**: Függvények definiálására használjuk, amelyek visszaadhatnak értéket és más kódokat futtathatnak.
+- **`var`**: Ez a kulcsszó változók deklarálására szolgál. WebPPL-ben a változók értéke lehet determinisztikus vagy valószínűségi. (Ezek a változók globálisan, mindenhol lehet rájuk hivatkozni egy szakaszon belül)
+- **`function`**: Függvények definiálására használjuk, amelyek visszaadhatnak értéket és más kódokat futtathatnak, ennek a változója lokális.
 
 #### **Példa egy változó deklarálására**
 ```javascript
@@ -54,7 +58,7 @@ A kimenet egy **hisztogram**, amelyen látható, hogy a két kimenetel **nagyjá
 
 ---
 
-## 📌 Dobókocka dobás különböző kiírási módokkal
+## Dobókocka dobás különböző kiírási módokkal
 
 ### 1 Egyetlen dobás egyszerű kiírása
 ```javascript
