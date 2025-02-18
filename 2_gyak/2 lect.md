@@ -31,7 +31,7 @@ print(add(3, 4)); // 7
 var coin = flip(0.5);
 print(coin);
 ```
-➡ **Kimenet:** `true` vagy `false` (fej vagy írás)
+**Kimenet:** `true` vagy `false` (fej vagy írás)
 
 ---
 
@@ -40,7 +40,7 @@ print(coin);
 var flips = repeat(10, function() { return flip(0.5); });
 print(flips);
 ```
-➡ **Kimenet (példa):** `[true, false, true, false, true, true, false, false, true, true]`
+**Kimenet:** `[true, false, true, false, true, true, false, false, true, true]`
 
 ---
 
@@ -50,7 +50,7 @@ viz.hist(
     repeat(1000, function() { return flip(0.5) ? "Fej" : "Írás"; })
 );
 ```
-➡ A kimenet egy **hisztogram**, amelyen látható, hogy a két kimenetel **nagyjából egyforma gyakorisággal fordul elő**.
+A kimenet egy **hisztogram**, amelyen látható, hogy a két kimenetel **nagyjából egyforma gyakorisággal fordul elő**.
 
 ---
 
@@ -61,7 +61,7 @@ viz.hist(
 var dice = sample(Discrete({ps: [1/6,1/6,1/6,1/6,1/6,1/6], vs: [1,2,3,4,5,6]}));
 print(dice);
 ```
-➡ **Kimenet:** `4` (vagy más szám 1-6 között)
+**Kimenet:** `4` (vagy más szám 1-6 között)
 
 ---
 
@@ -73,7 +73,7 @@ var rolls = repeat(10, function() {
 
 print(rolls);
 ```
-➡ **Kimenet (példa):** `[2, 4, 1, 6, 3, 5, 2, 2, 6, 4]`
+**Kimenet (példa):** `[2, 4, 1, 6, 3, 5, 2, 2, 6, 4]`
 
 ---
 
