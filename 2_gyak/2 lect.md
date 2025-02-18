@@ -102,7 +102,7 @@ Ez egy **hisztogramot** készít, amelyen látható, hogy **minden szám kb. 1/6
 
 ---
 
-## Összegzés: Hogyan ismételjünk WebPPL-ben `_.range(n)` nélkül?
+## Össszefoglalás: Hogyan ismételjünk WebPPL-ben (1)?
 | Módszer | Előnyei | Példa |
 |---------|---------|------|
 | **Rekurzió** | Nem kell külső függvény, tisztán funkcionális | `coinFlips(10)` |
@@ -112,7 +112,7 @@ Ez egy **hisztogramot** készít, amelyen látható, hogy **minden szám kb. 1/6
 
 ---
 
-## Alkalmazott WebPPL parancsok magyarázata
+## Alkalmazott WebPPL parancsok
 
 - **`var`** – Változók deklarálására szolgál WebPPL-ben.
 - **`function`** – Függvények definiálására használt kulcsszó.
