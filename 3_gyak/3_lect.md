@@ -51,6 +51,10 @@ viz.table(output)
 
 ## Coq és állítástípusok
 
+https://coq.inria.fr/
+
+https://coq.vercel.app/
+
 https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html
 
 
