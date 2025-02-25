@@ -24,6 +24,31 @@ Ezekből következik, hogy ∅ is a Σ eleme és a (megszámlálható) metszet i
 
 Ha A részhalmaza X-nek, akkor "a ∈ A" azt jelenti, hogy az a kimenetel a kedvező A esményt megvalósítja. a ∈ X tehát mindig megvalósul, mert X az összes elemi események halmaza és valahogy csak vannak a dolgok...
 
+## JS logikai jelölések
+
+````javascript
+var haakkor1 = function(x, y) {
+    return !x || y;
+};
+
+var haakkor2 = function(x, y) {
+    return ((x == true) ? y : true );
+};
+
+
+var haakkormodell = function() {
+    var x = categorical({ps: [0.5,0.5], vs: [false,true]})
+    var y = categorical({ps: [0.5,0.5], vs: [false,true]})
+    var z = haakkor1(x,y)
+    var w = haakkor2(x,y)
+    return [x,y, z, w];
+};
+
+var output = Enumerate(haakkormodell)
+
+viz.table(output)
+````
+
 ## Coq és állítástípusok
 
 https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html
