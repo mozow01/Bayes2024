@@ -128,7 +128,6 @@ vagy
 [![\\ \Pr(X=x\mid Y=y)\cdot\Pr (Y=y)=\Pr (X=x\wedge Y=y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%3Dx%5Cmid%20Y%3Dy)%5Ccdot%5CPr%20(Y%3Dy)%3D%5CPr%20(X%3Dx%5Cwedge%20Y%3Dy))](#_)
 
 az együttes vagy joint vagy többváltozós valószínűség _felbontását_ szorzatra **faktorizációnak** nevezzük. A faktorizáció feltételes valószínűségekkel a függőségi viszonyokat jeleníti meg.  
-****
 
 **Megjegyzés.** Vegyük észre, hogy a P (X | Y = y<sub>j</sub> ) = P( X = x<sub>i</sub> | Y = y<sub>j</sub> ) rögzített y<sub>j</sub>-re szintén az **X változó** egy valószínűségi eloszlása (pl. egyre összegződik: 
 
