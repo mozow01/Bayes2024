@@ -106,7 +106,7 @@ Legyen R az az igaz/hamis értékű kategorikus változó, hogy esik. Ekkor
 
 vagyis ez nem függ semmitől. A dugó T változója viszont feltételesen van megadva:  
 
-[![\\ T\sim \begin{cases}categorial(0.5,0.5) & R=true \\ \\ categorial(0.25,0.57) & R=false \\ \end{cases}](https://latex.codecogs.com/svg.latex?%5C%5C%20T%5Csim%20%5Cbegin%7Bcases%7Dcategorial(0.5%2C0.5)%20%26%20R%3Dtrue%20%5C%5C%20%5C%5C%20categorial(0.25%2C0.57)%20%26%20R%3Dfalse%20%5C%5C%20%5Cend%7Bcases%7D)](#_)
+$$T\sim \begin{cases}categorial(0.5,0.5) & R=true \\ \\ categorial(0.25,0.75) & R=false \\ \end{cases}$$
 
 Számoljuk ki az előző óra alapján:
 
