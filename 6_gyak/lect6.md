@@ -106,8 +106,8 @@ Legyen R az az igaz/hamis értékű kategorikus változó, hogy esik. Ekkor
 
 vagyis ez nem függ semmitől. A dugó T változója viszont feltételesen van megadva: $T\sim$
 
-$$categorial(0.5,0.5) & R=true $$
-$$categorial(0.25,0.75) & R=false$$
+$$categorial(0.5,0.5) \quad R=true $$
+$$categorial(0.25,0.75) \quad R=false$$
 
 Számoljuk ki az előző óra alapján:
 
