@@ -220,6 +220,14 @@ Valóban, általában a sorok összege nem 1:
 
 DE ez is egy nagyon hasznos függvény. Egy interperetáció, ezt ez a szám azt mondja, meg, hogy az adat milyen valószínű a különböző lehetséges világokban. Pl. fent az egyik világban magyar, a másikban francia kártya van. Az egyik világban a király valószínűsége nagyobb, mint a másikban. Ezért ha királyt húzunk, akkor nagyobb valószínűséggel vagyunk a "magyar" világban. Ezt a módszert hívjuk **maximum likelihood** módszernek. A Bayes-féle modellkiválasztás ennek egy spéci verziója és Pearson majdnem kitalálta az 1890-es években. 
 
+### Függetlenség ###
+
+Az $X$ és $Y$ változó függetlensége megfogalmazható a feltételes valószínűséggel is. A szorzatszabály szerint: 
+
+$$\Pr(XY)=\Pr(Y\mid X)\cdot\Pr(X)$$
+de ha $Y$ nem függ $X$-től, akkor az azt jelenti, hogy $\Pr(Y\mid X)=\Pr(Y)$, hiszen a függetlenség definíciója, hogy 
+$$\Pr(XY)=\Pr(Y)\cdot\Pr(X)$$
+
 ## Monty Hall- (vos Savant-) paradoxon
 
 <img src="https://github.com/mozow01/cog_compsci/blob/main/SciCamp/The-Monty-Hall-Problem-e1623680322430.png" width=200>
