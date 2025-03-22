@@ -90,13 +90,11 @@ vagyis ez nem függ semmitől. A dugó T változója viszont feltételesen van m
 $$categorial(0.5,0.5) \quad R=true $$
 $$categorial(0.25,0.75) \quad R=false$$
 
-Számoljuk ki az előző óra alapján:
-
 ````javascript
 var model6 = function () {
     var R = flip(1/3)
     var T = R==true ? flip(1/2) : flip(1/4)
-    return  {R: R, T: T, '(R,T)': [R, T]}
+    return  [R,T] }
 }
 
 var Z = Infer({method: 'enumerate', model: model6})
@@ -104,7 +102,18 @@ var Z = Infer({method: 'enumerate', model: model6})
 viz(Z)
 ````
 
-**HF** Tudjuk, hogy annak a valószínűsége, hogy késem, 1/2 ha nincs dugó, ha viszont dugó van, akkor 90%. Mennyi a késésem eloszlása? 
+ill. 
+
+````javascript
+var model6 = function () {
+    var R = categorical({ps: [1/3,2/3], vs: ['esik', 'nem esik']})
+    var T = R==true ? categorical({ps: [1/2,1/2], vs: ['dugó', 'nincs dugó']}) : 
+      categorical({ps: [1/4,3/4], vs: ['dugó', 'nincs dugó']})
+    return  [R,T] }
+````
+
+**b)** Tudjuk, hogy annak a valószínűsége, hogy késem, 1/2 ha nincs dugó, ha viszont dugó van, akkor 90%. Mennyi a késésem eloszlása? 
+
 
 ## A feltételes valószínűség definíciója
 
