@@ -81,7 +81,7 @@ Itt A és B események, azaz halmazok vagy állítások és nem változók.
 
 **Szorzatszabály.** A feltételes valószínűség sokszor olyan intuitív, hogy azonnal ennek az értékét tudjuk, sőt, vannak olyan tárgyalások is (Rényi), amelyekben a feltételes valószínűség az alapfogalom. Éppen ezért a definíciót néha így írják:
 
-[![\\ \Pr(A\mid B)\cdot \Pr A= \Pr (A\cdot B) \\ ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(A%5Cmid%20B)%5Ccdot%20%5CPr%20A%3D%20%5CPr%20(A%5Ccdot%20B)%20%5C%5C%20)](#_)
+$$\Pr(A\mid B)\cdot  \Pr(B)=\Pr(A\cdot B)$$
 
 **Változókkal**
 
