@@ -224,7 +224,7 @@ DE ez is egy nagyon hasznos függvény. Egy interperetáció, ezt ez a szám azt
 
 Az $X$ és $Y$ változó függetlensége megfogalmazható a feltételes valószínűséggel is. A szorzatszabály szerint: 
 
-$$\Pr(XY)=\Pr(Y\mid X)\cdot\Pr(X)$$
+$$\Pr(XY)=\Pr(YX)=\Pr(Y\mid X)\cdot\Pr(X)$$
 de ha $Y$ nem függ $X$-től, akkor az azt jelenti, hogy $\Pr(Y\mid X)=\Pr(Y)$, hiszen a függetlenség definíciója, hogy 
 $$\Pr(XY)=\Pr(Y)\cdot\Pr(X)$$
 
