@@ -24,6 +24,8 @@ viz.auto(eloszlás);
 
 ````flip(0.25)```` most a categorical egy spéci, spórolós változata. Boole-értéket ad vissza (azaz 0-t vagy 1-et) mégpedig 0.25 arányban az 1 javára. Húzás után visszatesszük a lapokat, tudjuk jól, ez a binomiális eloszlás és ezért a ````binom```` változó ugyanolyan eloszlású lesz. Lásd még a webppl dokumentációját!
 
+### Visszafelé következtetés ### 
+
 **Érdekesebb** probléma a következő. Ha tudunk valamit a szituációból, ez az eloszlás változni fog. Pl.: mi akkor X eloszlása, **ha tudjuk,** hogy az első esetben kőrt húzunk. 
 
 ````javascript
@@ -47,7 +49,9 @@ Itt ismét ````condition( H1 == 1 )```` játszotta a fő szerepet. Világos, hog
 
 [![\\ \Pr(X = k) = \binom{n}{k}p^k(1-p)^{n-k}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%20%3D%20k)%20%3D%20%5Cbinom%7Bn%7D%7Bk%7Dp%5Ek(1-p)%5E%7Bn-k%7D)](#_)
 
-Tehát van egy _p_ valószínűségű Boole-változó (Bernoulli változó) és _X_ jelentse azt, hogy ha _n_-szer egy ilyen kísérletet végrehajtunk (egymástól **függetlenül**), akkor ebből hányszor jön ki _igaz_. A magyarázat világos. 
+Tehát van egy _p_ valószínűségű Boole-változó (Bernoulli-változó) és definiálunk egy új változót: _X_ jelentse azt, hogy ha _n_-szer egy ilyen ($p$ szerint igazat vagy hamisat adó) kísérletet végrehajtunk (egymástól **függetlenül**), akkor ebből hányszor lesz _igaz_.
+
+Ennek magyarázata röviden a következő. 
 
 ## Házi?
 
