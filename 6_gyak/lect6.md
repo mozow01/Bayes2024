@@ -54,7 +54,7 @@ var model3 = function() {
   var H3 = flip(0.25)
   var X = H1 + H2 + H3
   condition( X == 1 )
-  return {'H1': H1, 'H2': H2, 'H3': H3 }
+  return {'H1': H1}
 }
 var eloszlás3 = Enumerate(model3)
 
@@ -174,7 +174,7 @@ var model5 = function () {
     
     // condition (Y==1);
     // return  {'X,Y': [X , Y]}
-    return  {'X' : X, 'Y': Y}
+    return  {'X' : X}
 }
 
 var Z = Infer({method: 'enumerate', model: model5})
@@ -302,8 +302,9 @@ var vosSavantProblem = function () {
     var stratégia_váltás = (Autó == ÚjTipp) ? 'nyer' : 'veszít'
     
     return  {
-             stratégia_maradás: stratégia_maradás, 
-             stratégia_váltás: stratégia_váltás } 
+             stratégia_maradás: stratégia_maradás 
+             //stratégia_váltás: stratégia_váltás
+            } 
 }
 
 var eloszlás = Enumerate(vosSavantProblem)
