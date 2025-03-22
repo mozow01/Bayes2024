@@ -71,30 +71,11 @@ Tehát van egy _p_ valószínűségű Boole-változó (Bernoulli-változó) és 
 
 A képlet magyarázata röviden a következő. Ha pontosan tudnánk, hogy az $n$ hosszú kísérletsorozatból az első $k$-ban teljesül ($p$ valószínűséggel) a vizsgált tulajdonság, a többiben nem, akkor ennek a sorozatban a valószínűsége: $p^k(1-p)^{n-k}$, hiszen az elemi kimenetelek függetlenek és a komplementer esemény valószínűsége $1-p$, amiből $n-k$ van. No, most már képzeljünk el $n$ helyet egymás mellett, amelyekre az igaz szót tesszük le. Amikor az a kérdés, hogy $k$ igazat hányféleképpen tudunk erre az $n$ helyre letenni, akkor a válasz $\binom{n}{k}$. Mindegyik elrendezés megfelel a $k$ db igaz feltételnek, továbbá az ilyen lerakások kölcsönösen kizárják egymást, ezért ezeket csak össze kell adni, ezt megteszi az n-alatt a k szorzó. 
 
-## A feltételes valószínűség
+## Függő változók, feltételes valószínűség, 
 
-Ekkor leszűkítjük az elemi események terét a feltételre, a B eseményt teljesítő elemi részeseményekre, azaz innentől nem Ω, hanem B az összes elemi események tere:
+Valószínűségi változók függhetnek egymástól.
 
-[![\\ \Pr(A\mid B)=\frac{\Pr (A\cdot B)}{\Pr B},\quad \Pr B\ne 0  \\ ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(A%5Cmid%20B)%3D%5Cfrac%7B%5CPr%20(A%5Ccdot%20B)%7D%7B%5CPr%20B%7D%2C%5Cquad%20%5CPr%20B%5Cne%200%20%20%5C%5C%20)](#_)
-
-Itt A és B események, azaz halmazok vagy állítások és nem változók. 
-
-**Szorzatszabály.** A feltételes valószínűség sokszor olyan intuitív, hogy azonnal ennek az értékét tudjuk, sőt, vannak olyan tárgyalások is (Rényi), amelyekben a feltételes valószínűség az alapfogalom. Éppen ezért a definíciót néha így írják:
-
-$$\Pr(A\mid B)\cdot  \Pr(B)=\Pr(A\cdot B)$$
-
-**Változókkal**
-
-Ha adott az X és Y változó és annak valamely x és y értéke, akkor az írásmód:
-
-[![\\ \Pr(X=x\mid Y=y)=\frac{\Pr (X=x\wedge Y=y)}{\Pr (Y=y)},\quad \Pr (Y=y)\ne 0 ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%3Dx%5Cmid%20Y%3Dy)%3D%5Cfrac%7B%5CPr%20(X%3Dx%5Cwedge%20Y%3Dy)%7D%7B%5CPr%20(Y%3Dy)%7D%2C%5Cquad%20%5CPr%20(Y%3Dy)%5Cne%200%20)](#_)
-vagy
-
-[![\\ \Pr(X=x\mid Y=y)\cdot\Pr (Y=y)=\Pr (X=x\wedge Y=y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%3Dx%5Cmid%20Y%3Dy)%5Ccdot%5CPr%20(Y%3Dy)%3D%5CPr%20(X%3Dx%5Cwedge%20Y%3Dy))](#_)
-
-az együttes vagy joint vagy többváltozós valószínűség _felbontását_ szorzatra **faktorizációnak** nevezzük. A faktorizáció feltételes valószínűségekkel a függőségi viszonyokat jeleníti meg.  
-
-**1.** 
+**Példák** 
 
 Pesten annak a valószínűsége, hogy március 20-adikán esik: 1/3. Ha esik, akkor 50%-os valószínűséggel dugul be a város. Ha nem esik, akkor a dugó kialakulásának aránya 0,25.   
 
@@ -123,19 +104,35 @@ var Z = Infer({method: 'enumerate', model: model6})
 viz(Z)
 ````
 
-Mi a joint valószínűség?
+**HF** Tudjuk, hogy annak a valószínűsége, hogy késem, 1/2 ha nincs dugó, ha viszont dugó van, akkor 90%. Mennyi a késésem eloszlása? 
 
-**b)** Tudjuk, hogy annak a valószínűsége, hogy késem, 1/2 ha nincs dugó, ha viszont dugó van, akkor 90%. Mennyi a késésem eloszlása? 
+## A feltételes valószínűség definíciója
 
-Alakítsuk át a programot és marginalizáljunk L-re!
+Leszűkítjük az elemi események terét a feltételre, a B eseményt teljesítő elemi részeseményekre, azaz innentől nem Ω, hanem B az összes elemi események tere:
+
+[![\\ \Pr(A\mid B)=\frac{\Pr (A\cdot B)}{\Pr B},\quad \Pr B\ne 0  \\ ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(A%5Cmid%20B)%3D%5Cfrac%7B%5CPr%20(A%5Ccdot%20B)%7D%7B%5CPr%20B%7D%2C%5Cquad%20%5CPr%20B%5Cne%200%20%20%5C%5C%20)](#_)
+
+Itt A és B események, azaz halmazok vagy állítások és nem változók. 
+
+**Szorzatszabály.** A feltételes valószínűség sokszor olyan intuitív, hogy azonnal ennek az értékét tudjuk, sőt, vannak olyan tárgyalások is (Rényi), amelyekben a feltételes valószínűség az alapfogalom. Éppen ezért a definíciót néha így írják:
+
+$$\Pr(A\mid B)\cdot  \Pr(B)=\Pr(A\cdot B)$$
+
+**Változókkal**
+
+Ha adott az X és Y változó és annak valamely x és y értéke, akkor az írásmód:
+
+[![\\ \Pr(X=x\mid Y=y)=\frac{\Pr (X=x\wedge Y=y)}{\Pr (Y=y)},\quad \Pr (Y=y)\ne 0 ](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%3Dx%5Cmid%20Y%3Dy)%3D%5Cfrac%7B%5CPr%20(X%3Dx%5Cwedge%20Y%3Dy)%7D%7B%5CPr%20(Y%3Dy)%7D%2C%5Cquad%20%5CPr%20(Y%3Dy)%5Cne%200%20)](#_)
+vagy
+
+[![\\ \Pr(X=x\mid Y=y)\cdot\Pr (Y=y)=\Pr (X=x\wedge Y=y)](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%3Dx%5Cmid%20Y%3Dy)%5Ccdot%5CPr%20(Y%3Dy)%3D%5CPr%20(X%3Dx%5Cwedge%20Y%3Dy))](#_)
+
+az együttes vagy joint vagy többváltozós valószínűség _felbontását_ szorzatra **faktorizációnak** nevezzük. A faktorizáció feltételes valószínűségekkel a függőségi viszonyokat jeleníti meg.  
+****
 
 **Megjegyzés.** Vegyük észre, hogy a P (X | Y = y<sub>j</sub> ) = P( X = x<sub>i</sub> | Y = y<sub>j</sub> ) rögzített y<sub>j</sub>-re szintén az **X változó** egy valószínűségi eloszlása (pl. egyre összegződik: 
 
 Mindez Y-ra nem igaz: az Y értékben változó P(X = x<sub>i</sub> | Y ) kifejezés csak egy egyszerű függvény, pl. nem feltétlenül összegződik 1-re.
-
-## Feltételes valószínűség, függő változók
-
-Valószínűségi változók függhetnek egymástól.
 
 **Példa**
 
