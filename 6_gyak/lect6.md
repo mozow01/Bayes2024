@@ -42,10 +42,28 @@ var eloszlás2 = Enumerate(model2)
 
 viz.auto(eloszlás2)
 ````
-
 Itt ismét ````condition( H1 == 1 )```` játszotta a fő szerepet. Világos, hogy X már nem vehet fel 0 értéket, mert már H1 == 1.
 
-Általában egy _X_ binomiális változó eloszlása:
+Még érdekezebb a dolog, ha az X-et tudjuk, vagyis ő a megfigyelt változó:
+
+````javascript
+
+var model3 = function() {
+  var H1 = flip(0.25)
+  var H2 = flip(0.25)
+  var H3 = flip(0.25)
+  var X = H1 + H2 + H3
+  condition( X == 1 )
+  return {'H1': H1, 'H2': H2, 'H3': H3 }
+}
+var eloszlás3 = Enumerate(model3)
+
+viz.auto(eloszlás3)
+````
+
+Ez már egy inferálás: a H1, H2, H3 látens változókat inferáljuk (következtetjük ki) az ismert X változóból.  
+
+### Általában egy _X_ binomiális változó eloszlása ###
 
 [![\\ \Pr(X = k) = \binom{n}{k}p^k(1-p)^{n-k}](https://latex.codecogs.com/svg.latex?%5C%5C%20%5CPr(X%20%3D%20k)%20%3D%20%5Cbinom%7Bn%7D%7Bk%7Dp%5Ek(1-p)%5E%7Bn-k%7D)](#_)
 
