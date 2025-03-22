@@ -22,7 +22,7 @@ viz.auto(binom);
 viz.auto(eloszlás);
 ````
 
-````flip(0.25)```` most a categorical egy spéci, spórolós változata. Boole-értéket ad vissza (azaz 0-t vagy 1-et) mégpedig 0.25 arányban az 1 javára. Húzás után visszatesszük a lapokat, tudjuk jól, ez a binomiális eloszlás és ezért a ````binom```` változó ugyanolyan eloszlású lesz. Lásd még a webppl dokumentációját!
+````flip(0.25)```` most a categorical egy spéci, spórolós változata. Boole-értéket ad vissza (azaz 0-t vagy 1-et) mégpedig 0.25 arányban az 1 javára. Húzás után visszatesszük a lapokat, tudjuk jól, ez a binomiális eloszlás és ezért a ````binom```` változó ugyanolyan eloszlású lesz. Lásd még a webppl dokumentációját! 
 
 ### Visszafelé következtetés ### 
 
@@ -51,22 +51,7 @@ Itt ismét ````condition( H1 == 1 )```` játszotta a fő szerepet. Világos, hog
 
 Tehát van egy _p_ valószínűségű Boole-változó (Bernoulli-változó) és definiálunk egy új változót: _X_ jelentse azt, hogy ha _n_-szer egy ilyen ($p$ szerint igazat vagy hamisat adó) kísérletet végrehajtunk (egymástól **függetlenül**), akkor ebből hányszor lesz _igaz_.
 
-Ennek magyarázata röviden a következő. 
-
-## Házi?
-
-````javascript
-var model = function () {
-    var C = categorical({ps: [0.4, 0.1, 0.3, 0.2], 
-                            vs: ["11", "10", "01", "00"]});
-    var AorB = (C=="11" || C=="10" || C=="01") ;
-    return  {AorB} 
-}
-
-var Z = Infer({method: 'enumerate', model: model})
-
-viz(Z)
-````
+A képlet magyarázata röviden a következő. Ha pontosan tudnánk, hogy az $n$ hosszú kísérletsorozatból az első $k$-ban teljesül ($p$ valószínűséggel) a vizsgált tulajdonság, a többiben nem, akkor ennek a sorozatban a valószínűsége: $p^k(1-p)^{n-k}$, hiszen az elemi kimenetelek függetlenek és a komplementer esemény valószínűsége $1-p$, amiből $n-k$ van. No, most már képzeljünk el $n$ helyet egymás mellett, amelyekre az igaz szót tesszük le. Amikor az a kérdés, hogy $k$ igazat hányféleképpen tudunk erre az $n$ helyre letenni, akkor a válasz $\binom{n}{k}$. Mindegyik elrendezés megfelel a $k$ db igaz feltételnek, továbbá az ilyen lerakások kölcsönösen kizárják egymást, ezért ezeket csak össze kell adni, ezt megteszi az n-alatt a k szorzó. 
 
 ## A feltételes valószínűség
 
