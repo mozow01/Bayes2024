@@ -1,4 +1,4 @@
-## 1.
+## 1. Diszkalkuliás modell
 
 ````javascript
 var feature1 = ['könyvtáros','tanár'];
@@ -32,7 +32,7 @@ var output =
 
 **1.4** (King-Ace Paradox, bemelegítő) Tudjuk, hogy a klasszikus logikában a "Ha ász van a kezemben, akkor király van, **vagy** ha nincs ász a kezemben, akkor király van a kezemben" mondatból nem következik feltétlenül, hogy király van a kezemben (miért?), sőt, ha a mondatban szereplő "vagy"-ot kizáró vagy értelemében használjuk, akkor kifejezetten az következik belőle, hogy nincs király a kezemben. Írj programot, ami a helyzetet modellezi úgy, hogy a mondatbeli "vagy" **jelentése** néha "és" néha "vagy" néha "kizáró vagy". Vö.: The Cambridge Handbook of Computational Psychology, ed.: Ron Sun, 2008, Cambrigde, p. 137.
 
-## 2.
+## 2. Állítás, mint érték
 
 Programozd le Coq-ban a következő állítások bizonyítását:
 
@@ -59,8 +59,9 @@ Lemma problem_3 : forall A B : Prop, (A \/ ~A) -> ((A -> B) -> A) -> A.
 ````coq
 Lemma problem_4 : forall (U : Type) (A B : U -> Prop), (exists x, A x /\ B x) -> (exists x, A x) /\ (exists x, B x).
 ````
+https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html
 
-## 3.
+## 3. Kombinatorikai modellezés
 
 **3.1** Írj programot, amelyik kiszámolja, hogy mi annak a valószínűsége, hogy 52 lapos francia kártyából 2 kártyát választva az egyik király, a másik nem király! 
 
@@ -70,7 +71,7 @@ Lemma problem_4 : forall (U : Type) (A B : U -> Prop), (exists x, A x /\ B x) ->
 
 **3.4** Van egy beépített emberünk a Monty Hall/vos Savant szituációban, aki 50% százalékban helyesen mutogatja el nekünk a színfalak mögül, hogy melyik ajtó mögött van az autó. Szót fogadunk neki, és azt az ajtót választjuk, amit ő javasol. Még mindig érdemes-e azután váltani, hogy Monty megmutatot egy kecskét? A választ támasszuk alá webppl programmal!
 
-## 4. alkalom
+## 4. Valószínűség modellezése
 
 **4.1** Francia kártyapakliból kiválogatjuk a figurásokat (bubi, dáma, király, ász). Ez 16 lap. Kihúzunk visszatevés nélkül belőlük két lapot. Az alábbi program azokat az eseteket sorolja fel, amikor teljesül az A = "az egyik lap nem kőr vagy a másik lap nem király" esemény. Ezt tekintsük úgy, mint egy olyan P(X,Y) joint eloszlást, ahol a lyukas helyekhez tartozó valószínűség nulla, a többihez egyenletes.
 
@@ -101,7 +102,7 @@ a) Rajzold fel a P(X) = P( X = x<sub>i</sub> ) = ∑<sub>j</sub>P( X = x<sub>i</
 
 b) Számoljuk ki a P( X = treff király vagy X = treff ász | Y = pikk dáma ) feltételes valószínűséget!
 
-**4.2** Hörcsögünk súlyának mérési adatai: 28 g, 31 g, 44 g, 29 g. Lexikonbeli adatok: átlagos súly: 32 g, szórás: 10 g. Mi lesz az adatokkal való frissítés után a hörcsög súlyának eloszlása?  
+**4.2** A hörcsög súlyának mérési adatai: 28 g, 31 g, 44 g, 29 g. Lexikonbeli adatok: átlagos súly: 32 g, szórás: 10 g. Mi lesz az adatokkal való frissítés után a hörcsög súlyának eloszlása?  
 
 ````javascript
 var data = [{k: 5},
@@ -120,9 +121,9 @@ var simpleModel = function() {
   var PredictivePosterior = gaussian(m,1);
   
   return {
-          Prior: Prior, 
-          Posterior: m,
-          PosteriorPredictive: PredictivePosterior
+          Prior: Prior 
+          // Posterior: m,
+          // PosteriorPredictive: PredictivePosterior
    
 
       };
