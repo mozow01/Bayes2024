@@ -498,3 +498,28 @@ print('Checking if P(JointERA) = P(R=1) * P(A=1): ' + probJointERA + ' = ' + pro
 var conditionalIndependence = probJointERA === productOfMarginals.toFixed(2) ? "Yes" : "No";
 print('Conditional Independence between Earthquake Radio and Alarm? ' + conditionalIndependence);
 ````
+
+## Közös mu, sigma inferencia
+
+
+````javascript
+// Megfigyelt adatok
+var data = [8.0, 9.5, 10.1, 9.8, 9.9];
+
+var model = function() {
+  var mu = gaussian(0, 10);
+
+  // Precízió (prior), majd szórás számítása
+  var tau = gamma(1, 1);                  // prior a precízióra
+  var sigma = 1 / Math.sqrt(tau);         // ebből számoljuk a szórást
+
+  // Megfigyelések
+  map(function(x) {
+    observe(Gaussian({mu: mu, sigma: sigma}), x); // csak sigma megengedett!
+  }, data);
+
+  return {mu: mu, sigma: sigma, tau: tau};
+};
+
+viz(Infer({method: 'MCMC', samples: 1000}, model));
+````
