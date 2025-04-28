@@ -90,7 +90,7 @@ P(19|m<sub>2</sub>)/P(19|m<sub>1</sub>) = 4.32
 azaz az egyenletes eloszlás még mindig jobban magyaráz, de már csak **anekdotikusan**, a 3.16 <BF < 6. Különbség tehát kimutatható, de már messze nem olyan hihetően, mint az előbb.
 
 
-## Kullback--Leiber-divergencia
+## Kullback--Leibler-divergencia
 
 Az **információ** intuitív értelmezése a "meglepettség" (surprisal, információtartam). Egy esetmény információtartalma annál nagyobb, minél kevesebbszer forul elő. Ha még azt is feltesszük, hogy ez a mennyiség a p(x) vsz-eken folytonosan operáljon egy f függvény által és teljesítse független A és B események esetén az
 
@@ -104,7 +104,7 @@ Ennek várható értéke, azaz az eloszlás átlagos információtartalma az **e
 
 $$H(X)=-\sum\limits_x \Pr(X=x)\cdot \log \Pr(X=x)$$
 
-Hogy az átlagos információtartalom az egyik eloszlásról a másikra áttérve hogyan változik, azt a relatív entrópia vagy más néven a Kullback--Leiber-divergencia határozza meg:
+Hogy az átlagos információtartalom az egyik eloszlásról a másikra áttérve hogyan változik, azt a relatív entrópia vagy más néven a Kullback--Leibler-divergencia határozza meg:
 
 $$D_\text{KL}(P \parallel Q) = -\sum\limits_x P(x)\log\left(\frac{Q(x) }{P(x)}\right)=-\sum\limits_x P(x) \log\left(Q(x)\right)-$$
 
