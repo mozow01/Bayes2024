@@ -155,6 +155,139 @@ viz(literalListener(i))
 
 ## Kiértékelés
 
+### 1
+
+````javascript
+// worldPrior: meghatározza a 
+// lehetséges "világállapotokat" és azok a priori valószínűségét.
+var worldPrior = function() {
+  var num_nice_people = randomInteger(4); // 0, 1, 2, vagy 3 kedves ember
+  return num_nice_people;
+};
+
+// utterancePrior: meghatározza a lehetséges "kijelentéseket", "megnyilatkozásokat",
+// amiket a beszélő mondhat, és azok a priori valószínűségét.
+var utterancePrior = function() {
+  var utterances = ['some of the people are nice',
+                    'all of the people are nice',
+                    'none of the people are nice'];
+  return uniformDraw(utterances); // Egyszerűbb módja a választásnak
+};
+
+// meaning: meghatározza egy kijelentés literális (szó szerinti) jelentését. Igaz 
+// értéket ad vissza, ha a kijelentés szó szerint igaz az adott világállapotban, 
+// egyébként hamisat.
+var meaning = function(utt, world) {
+  return (utt == 'some of the people are nice' ? world > 0 :
+          utt == 'all of the people are nice' ? world == 3 :
+          utt == 'none of the people are nice' ? world == 0 :
+          true); // Elvileg ide nem jutunk
+};
+
+// L0 - Literális hallgató
+// literalListener (L0): modellezi azt a hallgatót, aki szó szerint értelmezi 
+// a hallott kijelentést. Kiszámolja a lehetséges világállapotok valószínűségi
+// eloszlását adott egy kijelentés.
+var literalListener = cache(function(utterance) {
+  return Infer({method: 'enumerate'}, function() {
+    var world = worldPrior();
+    condition(meaning(utterance, world)); // Csak az igaz jelentésű világok maradnak
+    return world;
+  });
+});
+
+
+// S0 - Literális beszélő speaker
+// Ez a beszélő az adott világállapotban igaz kijelentések közül választ 
+// (egyenlő eséllyel).
+var literalSpeakerS0 = cache(function(world) {
+  return Infer({method: 'enumerate'}, function() {
+    var utterance = utterancePrior();
+    condition(meaning(utterance, world)); // Csak az igaz kijelentéseket vesszük
+    // figyelembe
+    return utterance;
+  });
+});
+
+// S1 - Pragmatikus beszélő: modellezi a pragmatikus beszélőt,
+// aki úgy választ kijelentést, hogy az a lehető leginformatívabb legyen
+// a literális hallgató (L0) számára az adott (valós) világállapot (world)
+// szempontjából.
+var pragmaticSpeakerS1 = cache(function(world) {
+  return Infer({method: 'enumerate'}, function() { // Válthatunk enumerate-re, 
+    //mert kicsi a tér
+    var utterance = utterancePrior();
+    var listenerBeliefs = literalListener(utterance);
+    // Optimalizálási cél: maximalizálni P(world | utterance) valószínűséget
+    // az L0 szemszögéből
+    // Ezt WebPPL-ben a score() adja meg (log-valószínűség)
+    // A factor függvény a WebPPL-ben a valószínűségi súlyozásra/kondicionálásra szolgál. 
+    // Ha m igaz (a kijelentés igaz a világban), akkor a súly e^0=1 
+    // (azaz a világállapot lehetséges). Ha m hamis, a súly e^(−∞)=0 
+    // (azaz ez a világállapot kizárt a hallott kijelentés alapján).
+    factor(listenerBeliefs.score(world));
+    return utterance;
+  });
+});
+
+
+// --- Fő Következtetés a Beszélő Típusára ---
+
+// Fake adatok: (világállapot, hallott kijelentés) párok
+// Példa 1: Olyan adatok, amik inkább a pragmatikus beszélőre utalnak
+//           (pl. world=3 esetén 'all'-t mond, nem 'some'-ot)
+var observedData_PragmaticLikely = [
+  { world: 1, utterance: 'some of the people are nice' },
+  { world: 3, utterance: 'all of the people are nice'  },
+  { world: 0, utterance: 'none of the people are nice' }
+];
+
+// Példa 2: Olyan adatok, amik inkább a literális beszélőre utalnak
+//           (pl. world=3 esetén is mondhat 'some'-ot, mert az is igaz)
+var observedData_LiteralLikely = [
+  { world: 1, utterance: 'some of the people are nice' },
+  { world: 3, utterance: 'some of the people are nice'  }, 
+  { world: 0, utterance: 'none of the people are nice' }
+];
+
+
+// A függvény, ami megbecsüli a beszélő típusát az adatok alapján
+var inferSpeakerType = function(observedData) {
+
+  return Infer({method: 'enumerate'}, function() {
+
+    // 1. Prior feltételezés a beszélő típusáról (legyen 50-50%)
+    var speakerType = flip(0.5) ? 'pragmatic' : 'literal';
+
+    // 2. Válaszd ki a megfelelő beszélő modellt a típus alapján
+    var speakerModel = (speakerType == 'pragmatic') ? pragmaticSpeakerS1 : literalSpeakerS0;
+
+    // 3. Kondicionálj a megfigyelt adatokra
+    //    Mennyire valószínűek ezek az adatok az adott típusú beszélő esetén?
+    mapData({data: observedData}, function(dataPoint) {
+      // Az observe/factor súlyozza a speakerType hipotézist azzal,
+      // mennyire valószínű, hogy ez a beszélő mondta volna ezt
+      // a kijelentést ebben a világban.
+      observe(speakerModel(dataPoint.world), dataPoint.utterance);
+    });
+
+    // 4. Add vissza a beszélő típusát (ennek az eloszlását keressük)
+    return speakerType;
+  });
+};
+
+// --- vizualizáció ---
+
+print("--- Eredmény (pragmatikusra utaló adatokkal) ---");
+viz.auto(inferSpeakerType(observedData_PragmaticLikely));
+
+print("--- Eredmény (literálisra utaló adatokkal) ---");
+viz.auto(inferSpeakerType(observedData_LiteralLikely));
+````
+
+
+### 2
+
 Az adatokkal való ütközettést is bayesiánus módon csináljuk, de ez már adatelemzés.
 
 ````javascript
