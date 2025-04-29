@@ -288,8 +288,6 @@ viz.auto(inferSpeakerType(observedData_LiteralLikely));
 
 ### 2
 
-Az adatokkal való ütközettést is bayesiánus módon csináljuk, de ez már adatelemzés.
-
 ````javascript
 var data = [{k : '1'}, 
             {k : '1'}, {k : '2'}, {k : '2'}
