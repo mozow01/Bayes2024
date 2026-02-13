@@ -1,112 +1,153 @@
-# 1. előadás – törpehörcsög példa (Bayes elemzésig)
+# Hipotézisvizsgálat (frekventista) – vázlatosan, de korrektül
 
-## Cél (2 perc)
-Ma ugyanarra a helyzetre két kérdésformát tanulunk meg:
-
-- **Frekventista:** *„Ha a hörcsög egészséges, milyen ritka lenne ilyen (vagy ennél szélsőségesebb) adat?”*  
-  (adat | modell)
-- **Bayes-i:** *„Az adatok után mennyire valószínű, hogy a hörcsög tényleg alulsúlyos?”*  
-  (modell/paraméter | adat)
-
-Az egész óra arról szól, hogy **melyik módszer milyen kérdésre ad választ**.
+> **Fő üzenet:** a frekventista hipotézisvizsgálat *hosszú távú ismétlés* (sokszor mérünk) világában értelmezett.  
+> A p-érték **nem** “a hipotézis valószínűsége”, hanem **adat-ritkaság** egy rögzített hipotézis alatt.
 
 ---
 
-## A történet (5 perc)
-Van egy törpehörcsögünk (Csofi), és azt gyanítjuk, hogy rendellenesen fogy.
+## 0) Frekventista doktrína 5 pontban (a “sokszor mérünk” világ)
+1) **A paraméter(ek) fixek, nem véletlenek.**  
+   Példa: a “valódi” átlag súly \(\mu\) egy fix szám (csak mi nem tudjuk).
 
-„Egészséges” súlymodell (ideálisítve):
+2) **A véletlen az adatban van.**  
+   Ha ugyanazt az eljárást (mérés, mintavétel) újra és újra megismételnénk, az adatok változnának.
 
-- haranggörbe (normális eloszlás)
-- **átlag**: 22 g
-- **szórás**: 1 g
+3) **A módszerek minőségét hosszú távú teljesítménnyel mérjük.**  
+   Pl. “ha a nullhipotézis igaz, akkor a téves riasztás aránya legyen legfeljebb 5%”.
 
-Írhatjuk így: \(X \sim \mathcal{N}(22, 1^2)\)
+4) **A döntési szabály része a “mintavételi terv” (stopping rule).**  
+   Nem mindegy, mikor állunk meg mérni; ez a frekventista világban számít.
 
-Mérés: csinálunk mondjuk **n = 10** súlymérést.
-
----
-
-## A döntési kérdés (1 perc)
-Nem filozófiai kérdés, hanem gyakorlati:
-
-**„Elvigyük-e orvoshoz?”**
-
-Ehhez ki kell mondani:
-- mi számít „rendellenesen alacsonynak”,
-- mennyi bizonyíték kell ahhoz, hogy lépjünk.
+5) **A p-érték és az alfa egy “ismételhetőségi” garanciához kötött fogalom.**  
+   Nem azt mondja meg, mi az igaz, hanem hogy egy eljárás milyen gyakran riaszt tévesen H0 mellett.
 
 ---
 
-## Bemelegítő kérdések (3 perc)
-- Ha az első három mérés: 19, 18, 18 g – mit csinálsz?
-- Hány mérés után lennél „biztos”?
-- Mit jelent itt az, hogy „biztos”?
+## 1) A hipotézisvizsgálat elemei (mit kell mindig megadni?)
+### 1.1. A modell / valószínűségi feltevések
+- Mit tekintünk véletlennek? (pl. mérések zajosak)
+- Milyen eloszlást feltételezünk? (pl. normális, ismeretlen szórással)
+- Függetlenség? azonos eloszlás? (i.i.d. mérés)
+- Mintaelemszám \(n\) és a mintavétel módja (előre rögzített \(n\)?)
 
-Ezek a naiv kérdések *valójában* a kurzus lényegét célozzák.
+### 1.2. Hipotézisek (H0 és H1)
+- **H0 (nullhipotézis):** az “alapállapot” / “nincs eltérés” / “egészséges story”  
+  Példa: $$H_0: \mu = 22$$
+- **H1 (alternatív):** amitől tartunk / amit kimutatnánk  
+  Példa (egyoldali): $$H_1: \mu < 22$$
+- Döntsd el: egyoldali vagy kétoldali?  
+  - egyoldali: csak “túl kicsi” érdekel  
+  - kétoldali: “túl kicsi vagy túl nagy” is érdekel
 
----
+### 1.3. Tesztstatisztika \(T(X)\)
+Olyan függvény az adatokból, ami “mennyire eltérés”-t mér.
 
-## Frekventista megközelítés (15–20 perc)
-### Mit csinálunk intuitívan?
-Felveszünk egy „egészséges világot”, és azt kérdezzük:
+- Példa (egy-mintás t-statisztika):
+  $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}$$
+- Intuíció: “hány standard error-rel vagyunk a nullától”.
 
-> **Ha a hörcsög tényleg egészséges, mennyire valószínű ilyen kicsi adatot kapni?**
+### 1.4. A tesztstatisztika eloszlása H0 alatt (null eloszlás)
+A frekventista lényeg itt van:
 
-Itt jön be (implicit módon) a hipotézisvizsgálat nyelve:
+- Feltesszük, hogy **H0 igaz**, és megkérdezzük:
+  *ha H0 igaz, akkor milyen eloszlású lenne a tesztstatisztikám sok ismétlésben?*
+- t-próbánál: \(t\) eloszlása H0 alatt t-eloszlás (df = n−1), ha a feltételek állnak.
 
-- „egészséges story” = \( \mu = 22 \)
-- „alulsúly story” = \( \mu < 22 \) (egyoldali, mert csak a túl alacsony érdekel)
+### 1.5. Szignifikanciaszint \(\alpha\) (előre!)
+- \(\alpha\) = megengedett **I. típusú hiba** arány (téves riasztás) H0 mellett.  
+  Tipikusan: \(\alpha = 0.05\).
+- Fontos: \(\alpha\)-t **előre** választjuk (nem utólag “igazítjuk” az adathoz).
 
-A klasszikus út: **egyoldali t-próba** (kis minta, ismeretlen szórás).
-
-A tesztstatisztika (nem kell túltolni, csak hogy legyen kapaszkodó):
-
-\[
-t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}
-\]
-
-**Intuíció:** azt méri, mennyire van a mintaátlag 22 alatt „a saját zajához képest”.
-
----
-
-## A p-érték – a kulcsmondat (8 perc)
-A p-érték NEM ezt jelenti:
-- „mekkora az esélye, hogy egészséges”
-- „mekkora az esélye, hogy a nullhipotézis igaz”
-
-A p-érték ezt jelenti:
-> **Ha a hörcsög egészséges (H0), milyen gyakran kapnánk ilyen alacsony (vagy még alacsonyabb) eredményt?**
-
-Tehát: **adat-ritkaság H0 alatt**, nem „betegség valószínűsége”.
-
-A kognitívok itt megnyugszanak: „igen, sampling-distribution, reference class, oké”.
-A mérnökök itt robbannak: „de én azt akarom tudni, hogy beteg-e!”
-
-Mindkettő jogos reakció, mert **más kérdést akarnak**.
+### 1.6. Döntési szabály (kritikus tartomány)
+- Egyoldali (alacsony irány): „utasítsd el H0-t, ha \(t\) elég kicsi”.
+- Ez a “kritikus tartomány” úgy van beállítva, hogy:
+  $$P(\text{elutasítjuk H0-t} \mid H0) = \alpha$$
+  hosszú távon.
 
 ---
 
-## Naiv kérdések (mérnök-kompatibilis, jogos) (10 perc)
-1) „Oké, de akkor mennyi a valószínűsége, hogy tényleg alulsúlyos?”
-2) „Mennyi \(P(\mu < 22 \mid \text{adat})\)?”
-3) „Miért nem lehet 3 mérés után dönteni?”
-4) „Ha p = 0.06, akkor ‘majdnem beteg’?”
-5) „Mi az esélye, hogy holnap is ugyanez jön ki?”
+## 2) p-érték (pontosan mi?)
+### 2.1. Definíció (egyoldali, “túl kicsi”)
+Legyen \(t_{\text{obs}}\) a megfigyelt statisztika.
 
-Ezek nem buta kérdések. Ezek azt jelzik, hogy a hallgató **a modellt szeretné valószínűsíteni**, nem az adatot.
+A p-érték:
+$$p = P(T \le t_{\text{obs}} \mid H0)$$
+
+Szóban:
+> Ha H0 igaz lenne, milyen gyakran kapnánk a mostaninál **ilyen vagy ennél szélsőségesebb** eredményt?
+
+### 2.2. Mit jelent a “sokszor mérünk” világban?
+Képzeld el, hogy ugyanazt az eljárást (n mérés, ugyanaz a számítás, ugyanaz a szabály) **nagyon sokszor** lefuttatjuk úgy, hogy H0 igaz.
+
+- A p-érték egy **null eloszlásbeli szélsőség** mértéke.
+- Kicsi p-érték: az adat “ritka” H0 világában.
+- Nagy p-érték: az adat “nem ritka” H0 világában.
+
+### 2.3. Mit NEM jelent (a leggyakoribb félreértések)
+- Nem jelenti: $$P(H0 \mid \text{adat})$$
+- Nem jelenti: “mekkora az esélye, hogy a hörcsög egészséges”
+- Nem jelenti: “mekkora az esélye, hogy H1 igaz”
+- Nem jelenti: “mekkora a hatás” (effect size)  
+  (kicsi p lehet kis hatásnál is, ha n nagy)
 
 ---
 
-## Átkötés Bayesre (2 perc)
-Most váltunk irányt:
+## 3) A hibák és a garanciák (miért van \(\alpha\)?)
+### 3.1. I. típusú hiba (false positive)
+- Elutasítod H0-t, pedig igaz.
+- Garancia: ha H0 igaz, akkor ennek aránya hosszú távon legfeljebb \(\alpha\).
 
-- Frekventista: **feltesszük** \( \mu = 22 \)-t, és kérdezünk az adatról.
-- Bayes: \( \mu \)-t **ismeretlennek** kezeljük, prior → adatok → posterior.
+### 3.2. II. típusú hiba (false negative)
+- Nem utasítod el H0-t, pedig hamis (valójában eltérés van).
+- Ennek komplementere: **erő (power)** = a teszt “érzékenysége”.
 
-A Bayes-szakaszban azt fogjuk kiszámolni, amit a mérnök kérdez:
+### 3.3. Mi a frekventista “korrekt” állítás?
+- “Ez az eljárás 5%-ban riaszt tévesen egészséges hörcsögre” (H0 világában)
+- “Ekkora eltérésnél ennyi a power” (H1 világában)
 
-- \(P(\mu < 22 \mid \text{adat})\)
-- és még jobb: \(P(\mu < 21 \mid \text{adat})\) (klinikailag értelmes küszöb)
+---
 
-**Itt állunk meg; innen jön a Bayes elemzés.**
+## 4) A döntés vs. evidencia különválasztása (fontos tanári pont)
+- A p-érték egy **evidencia-jellegű** szám (compatibility H0-val).
+- A “p < 0.05 → beteg” egy **döntési szabály**, ami konvenció + költség-haszon kérdés.
+- Orvosi helyzetben érdemes beszélni:
+  - milyen téves riasztás tolerálható,
+  - milyen téves megnyugtatás veszélyes.
+
+---
+
+## 5) A “mintavételi terv” és a stopping rule (miért számít?)
+A frekventista p-érték a teljes eljárásra vonatkozik:
+
+- “előre rögzített n = 10”
+- “mérünk addig, amíg elég kicsi p nem lesz”
+- “mérünk addig, amíg 4 siker nem lesz” (negatív binomiális jelleg)
+
+Ezek különböző *ismétlési világok* → más null eloszlás → más p-érték.
+
+---
+
+## 6) Miért robbannak a mérnökök? (és miért nyugszanak meg a kognitívok?)
+### Mérnöki igény (naiv, de jogos)
+Ők ezt akarják:
+- $$P(\mu < 22 \mid \text{adat})$$
+- “mennyi az esélye, hogy beteg?”
+
+A frekventista teszt erre *nem ad közvetlen választ*.
+
+### Kognitív reakció
+Ők azt értik, hogy:
+- a p-érték a sampling-distributionból jön,
+- és ezért függ az eljárástól (stopping rule),
+- és nem posterior.
+
+Ezért nekik ez “konzisztens”, csak nem ugyanaz a kérdés.
+
+---
+
+## 7) Átkötés Bayeshez (1 mondat)
+Ha a kérdésed tényleg az, hogy “mennyire valószínű az alulsúlyosság az adatok után”,
+akkor olyan keret kell, ahol a paraméter is bizonytalan:
+
+- prior → likelihood → posterior  
+- és akkor tényleg számolható: $$P(\mu < 22 \mid \text{adat})$$
