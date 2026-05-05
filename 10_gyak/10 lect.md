@@ -29,9 +29,9 @@ Az RSA modell alapja a **rekurzív (vagy hierarchikus) szociális kogníció**. 
 1. **A szó szerinti hallgató ($L_0$ - Literal listener):**
    A hierarchia legalsó, szemantikai szintje. Ez az ágens nem végez pragmatikai következtetést, csupán egy szótár alapján értelmezi az $u$ megnyilatkozást (utterance). Frissíti az $s$ világállapotokra (states) vonatkozó a priori eloszlását oly módon, hogy kizárja azokat az állapotokat, amelyekben a megnyilatkozás logikailag hamis (már ha a megnyilatkozás mondat és nem szó).
 
-   $$P_{L_0}(s \mid u) \propto \mathcal{I}_{[[u]](s)} \cdot P(s)$$
+   $$P_{L_0}(s \mid u) \propto I_{[[u]](s)} \cdot P(s)$$
 
-   (Itt $P(s)$ a világállapotok a priori valószínűsége, $\mathcal{I}_{[[u]](s)}$ pedig egy indikátorfüggvény, amelynek értéke 1, ha az $u$ megnyilatkozás szó szerinti jelentése igaz az $s$ állapotban, és 0, ha hamis.)
+   (Itt $P(s)$ a világállapotok a priori valószínűsége, $I_{[[u]](s)}$ pedig egy indikátorfüggvény, amelynek értéke 1, ha az $u$ megnyilatkozás szó szerinti jelentése igaz az $s$ állapotban, és 0, ha hamis.)
 
 2. **A pragmatikus beszélő ($S_1$ - Pragmatic speaker):**
    A beszélő célvezérelt, racionális ágensként viselkedik. Ismeri a valós $s$ világállapotot, és egy olyan $u$ megnyilatkozást választ, amely maximalizálja a kommunikáció hasznosságát (utility) a szó szerinti hallgató ($L_0$) felé.
