@@ -20,32 +20,56 @@ _Skaláris implikatúrnának_ nevezzük a "minden" "valahány" "egy se" ("all", 
 
 ## RSA modellek
 
-A fentiek komputációs modellezéséhez az úgy nevezett RSA elméletet használják, azaz a Rational Speech Act Theory-t (Noah Goodman--Michael Frank, Stanford CoCoLab, inventors of webppl), ami a speech act elmélet egy komputációs bayesiánus változata. 
+A pragmatikai jelenségek komputációs modellezésének egyik legkorszerűbb eszköze az úgynevezett **RSA elmélet (Rational Speech Act Theory)**, amelyet Noah Goodman és Michael Frank (Stanford CoCoLab, a WebPPL megalkotói) fejlesztettek ki. Az RSA elmélet lényegében a grice-i maximákra és a speech act (beszédaktus) elméletre épülő társalgási implikatúrák komputációs, bayesiánus megfogalmazása.
 
 [https://www.problang.org/chapters/01-introduction.html]
 
-Az RSA modell három hierarcikus feltételes valószínűségi eloszlást tartalmaz a beszélő nyelvprodukciójára és a hallgató interpretációjára. A **pragmatikus beszélő (pragmatic speaker)** ($S_1$) kiválaszt egy szót $u$, hogy kommunikációs hatékonyság szemponthából a legjobban tudjon referálni egy $s$ (state) objektumra a **szó szerinti hallgatónak (literal listener)** $L_0$. Ő $u$-t igazként értelmezi, megtalálja azokat az objektumokat, amelyek megfelelnek $u$ jelentésnek és ezekre egy (egyszerű) eloszlást inferál. A **pragmatikus hallgató (pragmatic listener)** ($L_1$) a beszélő racionális gondolatairól következtet, és ennek megfelelően értelmezi $u$-t a Bayes-tételt használva. $L_11$ figyelembe veszi az objektumok prior valószínűségét ($P(s)$). Az RSA keretrendszer információ-elméleti módon írja le a racionális beszédaktus pragmatikájának jelenségét.
+Az RSA modell alapja a **rekurzív (vagy hierarchikus) szociális kogníció**. A kommunikáló felek tudatában vannak annak, hogy a másik fél is racionális ágens, és ezt a tudást beépítik a saját nyelvprodukciós és -megértési folyamataikba. A modell ezt egymásba ágyazott, feltételes valószínűségi eloszlásokkal írja le, három szinten:
 
-<img src="https://github.com/mozow01/Bayes2024/blob/main/Screenshot%20from%202024-05-08%2012-40-42.png" height=300>
+1. **A szó szerinti hallgató ($L_0$ - Literal Listener):**
+   A hierarchia legalsó, szemantikai szintje. Ez az ágens nem végez pragmatikai következtetést, csupán egy szótár alapján értelmezi az $u$ megnyilatkozást (utterance). Frissíti az $s$ világállapotokra (states) vonatkozó a priori eloszlását oly módon, hogy kizárja azokat az állapotokat, amelyekben a megnyilatkozás logikailag hamis.
 
-Pragmatic listener:
+   $$P_{L_0}(s \mid u) \propto \mathcal{I}_{[\![u]\!](s)} \cdot P(s)$$
 
-$$P_{L_1}(s,u)=P(s\mid u)\propto P(u\mid s)\cdot P(s)$$
+   *(Itt $P(s)$ a világállapotok a priori valószínűsége, $\mathcal{I}_{[\![u]\!](s)}$ pedig egy indikátorfüggvény, amelynek értéke 1, ha az $u$ megnyilatkozás szó szerinti jelentése igaz az $s$ állapotban, és 0, ha hamis.)*
 
-Pragmatic speaker: 
+2. **A pragmatikus beszélő ($S_1$ - Pragmatic Speaker):**
+   A beszélő célvezérelt, racionális ágensként viselkedik. Ismeri a valós $s$ világállapotot, és egy olyan $u$ megnyilatkozást választ, amely maximalizálja a kommunikáció hasznosságát (utility) a szó szerinti hallgató ($L_0$) felé.
 
-$$P_{S_1}(u,s)=P(u\mid s)\propto e^{-\alpha U_{S_1}(u,s)}$$
+   $$P_{S_1}(u \mid s) \propto \exp\big(\alpha \cdot U(u, s)\big)$$
 
-(itt $U_{S_1}(u,s)$ a utility (jutalom) függvény)
+   *(Itt az $\exp(\dots)$ a Softmax-függvény, amely a pontszámokat valószínűségi eloszlássá alakítja. Az $\alpha$ a racionalitás, vagy optimalitás paramétere: minél nagyobb, az ágens annál inkább a legoptimálisabb szót választja. A $U(u, s)$ a hasznosság függvény.)*
+   
+   A **hasznosság** információelméleti alapon definiálható: a megnyilatkozás legyen minél informatívabb (csökkentse $L_0$ meglepettségét, azaz minimalizálja a Shannon-féle meglepetést) és egyben a legkisebb nyelvi költséggel járó:
+   
+   $$U(u, s) = \log P_{L_0}(s \mid u) - C(u)$$
+   
+   *(ahol $C(u)$ a kimondott szó költsége, pl. a hossza vagy ritkasága).*
 
-Literal listener:
+3. **A pragmatikus hallgató ($L_1$ - Pragmatic Listener):**
+   A valós társalgási partner modellje. $L_1$ megkapja az $u$ megnyilatkozást, és a Bayes-tétel alkalmazásával "megfordítja" a pragmatikus beszélő generatív modelljét, hogy a posteriori valószínűséget rendeljen a rejtett $s$ világállapotokhoz. Azt a kérdést teszi fel magának: *"Melyik az az $s$ világállapot, amelyből egy racionális beszélő a legnagyobb valószínűséggel épp ezt az $u$ kifejezést generálta volna?"*
 
-$$P_{L_0}(s,u)=P(s\mid u)\propto 1_{[[u]],s}\cdot P(s)$$
+   $$P_{L_1}(s \mid u) \propto P_{S_1}(u \mid s) \cdot P(s)$$
 
-(itt $1_{[[u]],s}$ a Kronecker-delta függvény, ami 1, ha $u$ jelentése $[[u]]=s$ és nulla, ha nem.)
+Ez az információelméleti és játékelméleti alapokra épülő keretrendszer az egyszerű, logikai szabályokkal nehezen leírható pragmatikai jelenségek (mint pl. a skaláris implikatúra) elegáns detektálását és modellezését teszi lehetővé.
 
-Nulladik lépésben, a jelenség detektálásánál, a literal és a pragmatic listener viselkesésének leírás a feladat. Összetettebb feladatban ez bonyolultabb jelenségek leírására is alkalmas.
+<img src="https://github.com/mozow01/Bayes2024/blob/main/Screenshot%20from%202024-05-08%2012-40-42.png" height="300">
 
+---
+
+### Behelyettesítés a "Vanilla" RSA skaláris implikatúra modellbe
+
+Hogy a fenti absztrakt matematikai képletek a gyakorlatban (WebPPL kódban) is értelmet nyerjenek, nézzük meg, melyik kódsor melyik egyenletnek feleltethető meg a *Vanilla RSA generative model* implementációjában!
+
+| Szintjelölés | Fogalom / Változó a képletben | Megfelelés a WebPPL kódban | Magyarázat |
+| :--- | :--- | :--- | :--- |
+| **Priorok** | $P(s)$ | `statePrior()` | A lehetséges világállapotok egyenletes eloszlása. |
+| **Priorok** | $C(u)$ | `cost(utterance)` | Az adott megnyilatkozás "ára" (jelen esetben minden szó költsége egységesen 1, vagy 0, ami bünteti a felesleges szavakat). |
+| **Szótár** | $\mathcal{I}_{[\![u]\!](s)}$ | `meaning(state)` és `condition(...)` | A `literalMeanings` logikai függvényei; a `condition` gondoskodik a 0-val vagy 1-gyel való szorzásról (lenullázza a hamis ágakat). |
+| **$L_0$** | $P_{L_0}(s \mid u)$ | `literalListener(utt)` | Beépített WebPPL inferencia: a lehetséges állapotok szűrése az aktuális $u$ megnyilatkozás logikai igazságértéke alapján. |
+| **Utility** | $\log P_{L_0}(s \mid u)$ | `literalListener(utt).score(state)` | A WebPPL-ben a `.score()` metódus pontosan a **log-valószínűséget** (log-probability) adja vissza, ami tökéletesen fedi a $U(u,s)$ információelméleti definícióját. |
+| **$S_1$** | $\alpha$ és $\exp(\dots)$ | `factor(alpha * ...)` | A `factor()` függvény módosítja a mintavételek súlyozását: exponenciális transzformációt hajt végre a megadott értéken, az $\alpha$ paraméterrel skálázva. Ezzel létrehozva a racionális szóválasztást. |
+| **$L_1$** | $P_{L_1}(s \mid u)$ | `observe(speaker(state), utt)` | A Bayes-tétel alkalmazása: a priorból kiindulva (`statePrior()`) a `speaker` modellt likelihood függvényként használjuk, ráillesztve a megfigyelt $u$ (`utt`) megnyilatkozást. |
 ## A utility függvényről
 
 Az úgy nevezett agent-action elméletben az ágens egy action-nel reagál a világállapotra, a state-re. Az állapottól függő jutalomfüggvény dönt arról, hogy milyen tevékenységet fog végezni.
