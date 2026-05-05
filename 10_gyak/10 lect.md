@@ -61,7 +61,7 @@ Nézzük meg, melyik kódsor melyik egyenletnek feleltethető meg a *Vanilla RSA
 | :--- | :--- | :--- | :--- |
 | **Priorok** | $P(s)$ | `statePrior()` | A lehetséges világállapotok egyenletes eloszlása. |
 | **Priorok** | $C(u)$ | `cost(utterance)` | Az adott megnyilatkozás "ára" (jelen esetben minden szó költsége egységesen 1, vagy 0, ami bünteti a felesleges szavakat). |
-| **Szótár** | $\mathcal{I}_{[[u]](s)}$ | `meaning(state)` és `condition(...)` | A `literalMeanings` logikai függvényei; a `condition` gondoskodik a 0-val vagy 1-gyel való szorzásról (lenullázza a hamis ágakat). |
+| **Szótár** | $1_{u,s}$ | `meaning(state)` és `condition(...)` | A `literalMeanings` logikai függvényei; a `condition` gondoskodik a 0-val vagy 1-gyel való szorzásról (lenullázza a hamis ágakat). |
 | **$L_0$** | $P_{L_0}(s \mid u)$ | `literalListener(utt)` | Beépített WebPPL inferencia: a lehetséges állapotok szűrése az aktuális $u$ megnyilatkozás logikai igazságértéke alapján. |
 | **Utility** | $\log P_{L_0}(s \mid u)$ | `literalListener(utt).score(state)` | A WebPPL-ben a `.score()` metódus pontosan a **log-valószínűséget** (log-probability) adja vissza, ami tökéletesen fedi a $U(u,s)$ információelméleti definícióját. |
 | **$S_1$** | $\alpha$ és $\exp(\dots)$ | `factor(alpha * ...)` | A `factor()` függvény módosítja a mintavételek súlyozását: exponenciális transzformációt hajt végre a megadott értéken, az $\alpha$ paraméterrel skálázva. Ezzel létrehozva a racionális szóválasztást. |
